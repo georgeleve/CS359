@@ -1,0 +1,55 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+}
+table, th, td {
+    border: 1px solid black;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(255, 162, 0);
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+.box{
+    width:300px
+    padding=30px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    backround:rgba(0,0,0,4);
+    text-align:center;
+}
+.box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight:700;
+}
+.box input[type="text"],.box input[type="password"]{
+
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border:3px solid;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+}
+
