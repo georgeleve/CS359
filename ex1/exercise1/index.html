@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <style>
-
-
-    </style>
-
     <head>
-        <title>GeorgeLeveWebsite</title>
-        <script src="main.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
 
-        <form class="box" action="index.html" method="POST">
-            <h1>
-                login
-            </h1>
-            <input type="text" name="" placeholder="Enter Username" id="username">
-            <input type="password" name="" placeholder="Enter Password" id="password">
-            <input type="submit" name="" value="Login">
-        </form>
+    </style>
+
+
+    <body>
+        <script src="main.js"></script>
         
         <header>
             <h1>This is a header</h1>
         </header>
         
         <nav>
-            <h2>This is a navigation link:
-                <a href="/html/">click here</a>
-            </h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About me</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+            <form>
+                <input type="search" name="q" placeholder="Search query">
+                <input type="submit" value="Go!">
+            </form>
+       
         </nav>
+
+        <main>
+            <article>
+                <h2>Article heading</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
+        
+                <h3>Subsection</h3>
+        
+                <p>Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.</p>
+        
+                <p>Pelientesque auctor nisi id magna consequat sagittis. Curabitur dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.</p>
+        
+                <h3>Another subsection</h3>
+        
+                <p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum soclis natoque penatibus et manis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
+        
+                <p>Vivamus fermentum semper porta. Nunc diam velit, adipscing ut tristique vitae sagittis vel odio. Maecenas convallis ullamcorper ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, is fringille sem nunc vet mi.</p>
+            </article>
+
+            <aside>
+                <h2>Related</h2>
+        
+                <ul>
+                  <li><a href="#">Oh I do like to be beside the seaside</a></li>
+                  <li><a href="#">Oh I do like to be beside the sea</a></li>
+                  <li><a href="#">Although in the North of England</a></li>
+                  <li><a href="#">It never stops raining</a></li>
+                  <li><a href="#">Oh well...</a></li>
+                </ul>
+              </aside>
+        
+            </main>
+
+
+
+        </main>
 
         <article>
             <h3>This is a heading of an article</h3>
@@ -43,32 +81,31 @@
         </aside>
 
         <footer>
-            <p>This is a footer<br>
-                <a href="mailto:hege@example.com">hege@example.com</a>
-            </p>
+            <p>Copyright 2021 by me. All rights reversed.</p>
         </footer>
     
         <div>
             <h4>this is a div element</h4>
         </div>
 
-        <h5>This is a ol element</h5>
+        <h3>My Hobbies:</h3>
         <ol>
             <li>Programming</li>
             <li>Gym</li>
             <li>Cooking</li>
-            <li>Coding</li>
+            <li>Travelling</li>
             <li>Crypto</li>
         </ol>
         
-        <h6>This is an unorder list element</h6>
+        <h3>Favorite foods:</h3>
         <ul start="30">
-            <li>Coffee</li>
-            <li>Tea</li>
-            <li>Milk</li>
+            <li>Pastitsio</li>
+            <li>Gemista</li>
+            <li>Soutzoukakia</li>
         </ul>
 
-        <h1>This is my course catalogue</h1>
+        <br>
+        <h1>Course Catalogue:</h1>
         <table style="width:30%">
             <tr>
                 <th>Course Title</th>
@@ -220,24 +257,46 @@
             </tr>
         </table>
 
-        <h1>Visit my Univeristy webpage
+        <h2>Visit my University Webpage
             <a href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en">here!</a>
-        </h1>
+        </h2>
 
         <figure>
             <img src="santorini.jpg" alt="Santorini" width="500" height="600">
             <figcaption>This is a picture from Santorini, Greece.</figcaption>
         </figure>
 
-        <h3>This is an audio file</h1>
-        <audio controls>
-            <source scr="rain.mp3" type="audio/mpeg">
-        </audio>
+        <h3>This is the Mario Bros Theme Song:</h3>
+        <div id="3" class="audio">
+            <!--audio tag-->
+            <audio controls>
+                <source src="mario.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio> 
+        </div>
 
-        <h3>This is an video file</h1>
-        <video width="320" height="240" controls>
+        <h3>This is a html video tag:</h3>
+        <video width="320" height="240" autoplay muted>
             <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
         </video>
 
+        <h3>This is an  embed video from youtube:</h3>
+            <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY"> </iframe>
+            <br>
+        
+        <h3>Click share, to share something on Facebook:</h3>
+        <div class="fb-share-button" data-href="https://www.facebook.com/georgleventopoulos" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fgeorgleventopoulos&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
     </body>
+
+    <h2>Find me on Social Media:</h2>
+    <!-- Add font awesome icons -->
+    <a href="https://www.facebook.com/georgleventopoulos/" class="fa fa-facebook"></a>
+    <a href="https://twitter.com/georgeleve00" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/george-leventopoulos-787560145/" class="fa fa-linkedin"></a>
+    <a href="https://www.instagram.com/george.leve/" class="fa fa-instagram"></a>
+
 </html>

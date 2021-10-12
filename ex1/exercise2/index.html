@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
+    <style>
+
+
+    </style>
+
+    <head>
+        <title>Exercise 2</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
 <body>
+    <script src="main.js"></script>
 
 
 <form action="/action_page.php">
     <label for="country_code">Username:</label>
-    <input type="text" minlength="8" id="country_code" name="country_code" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Three letter country code" required><br><br>
+    <input type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+     minlength="8" id="country_code" name="country_code" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Three letter country code" required><br><br>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
     <label for="pwd">Password:</label>
-    <input type="password" minlength="8" maxlength="15" id="pwd" name="pwd" pattern=pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}" title="Eight or more characters" required><br><br>
+    <input type="password" placeholder="********" minlength="8" maxlength="15" id="pwd" name="pwd" pattern=pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}" title="Eight or more characters" required><br><br>
 
     <label for="country_code">Password confirmation:</label>
-    <input type="password" minlength="8" maxlength="15" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
+    <input type="password" placeholder="********" inlength="8" maxlength="15" id="pwd2" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
 
     <label for="usertype">User Type:</label>
     <select id="usertype" name="usertype" required>
@@ -23,10 +35,12 @@
     </select><br><br>
 
     <label for="country_code">Name:</label>
-    <input type="text" minlength="3" maxlength="30" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
+    <input type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+     minlength="3" maxlength="30" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
 
     <label for="country_code">Surname:</label>
-    <input type="text" minlength="3" maxlength="30" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
+    <input type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+    minlength="3" maxlength="30" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
 
     <label for="start">Birthday:</label>
     <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" required> <br><br>
@@ -40,7 +54,8 @@
       <label for="javascript">Other</label> <br><br>
 
     <label for="country_code">AMKA:</label>
-    <input type="password" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
+    <input type="password" onkeypress="return (event.charCode > 47 && event.charCode < 59)" 
+    id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
 
     <label for="country_code">Country:</label>
     <select id="country" name="country">
@@ -294,13 +309,15 @@
     </select> <br><br>
     
     <label for="country_code">Town:</label>
-    <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
+    <input type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" 
+    minlength="3" maxlength="50" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
     
     <label for="country_code">Home Address:</label>
-    <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
+    <input type="text" minlength="5" maxlength="50" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
 
     <label for="country_code">Phone Number:</label>
-    <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
+    <input type="number" onkeypress="return (event.charCode > 47 && event.charCode < 59)" 
+    maxlength="30" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
 
     <label for="country_code">Height (in cm):</label>
     <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code"><br><br></var>
@@ -333,10 +350,8 @@
     <label for="country_code">Agree with the terms of use:</label>
     <input type="checkbox" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
 
-    <label for="country_code">Town:</label> 
-    <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br><br>
-
     <button type="button">Submit</button>
+   <!-- <input type="submit" value="sbmt" /><br> -->
 </form>
 
 </body>
