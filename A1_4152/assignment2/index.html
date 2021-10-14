@@ -11,7 +11,7 @@
     <body>
         <script src="main.js"></script>
 
-            <br>
+        <form>
             <label for="username"> <b>Username:</b></label>
             <input type="text" minlength="8" id="username" name="username" pattern="[A-Za-z]" required><br><br>
 
@@ -24,24 +24,23 @@
             <label for="password"><b>Password Confirmation:</b></label>
             <input type="password" minlength="8" maxlength="15" size="15" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="(same as Password)" required><br><br>
 
-            <label for="usertype">User Type:</label>
+            <label for="usertype"><b>User Type:</b></label>
             <select id="usertype" name="usertype" required>
                 <option selected="selected">Simple User</option>
                 <option value="doctor">Doctor</option>
             </select><br><br>
 
-            <label for="name">Name:</label>
+            <label for="name"><b>Name:</b></label>
             <input type="text" minlength="3" maxlength="30" size="30" id="name" name="name" required><br><br>
 
-            <label for="surname">Surname:</label>
+            <label for="surname"><b>Surname:</b></label>
             <input type="text" minlength="3" maxlength="30" size="30" id="surname" name="surname" required><br><br>
 
-            <label for="birthday">Birthday:</label>
+            <label for="birthday"><b>Birthday:</b></label>
             <input type="date" id="birthday" name="birthday" value="1980-01-01" min="1920-01-01" max="2005-12-31" required> <br><br>
             
-
             <div class="custom-control custom-radio">
-              <label for="Sex">Sex:</label><br>
+              <label for="Sex"><b>Sex:</b></label><br>
             </div>
             <div class="custom-control custom-radio">
               <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
@@ -57,10 +56,10 @@
             </div><br>
 
             <!-- na to xanado   to size-->
-            <label for="amka">AMKA:</label>
+            <label for="amka"><b>AMKA:</b></label>
             <input type="number" id="amka" name="amka" min="00000000000" max="99999999999" placeholder="(11 digits)" required/> <br><br>
 
-            <label for="country">Country:</label>
+            <label for="country"><b>Country:</b></label>
             <select id="country" name="country">
                 <option selected="selected">Greece</option>
                 <option value="Afganistan">Afghanistan</option>
@@ -311,24 +310,24 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select> <br><br>
             
-            <label for="town">Town:</label>
+            <label for="town"><b>Town:</b></label>
             <input type="text" minlength="3" maxlength="50" id="town" name="town" required><br><br>
             
             <!-- na to xanado apo edo kai kato------------------------->
-            <label for="home_address">Home Address:</label>
+            <label for="home_address"><b>Home Address:</b></label>
             <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="home_address" pattern="[A-Za-z]{3}" required><br><br>
 
-            <label for="phone_number">Phone Number:</label>
+            <label for="phone_number"><b>Phone Number:</b></label>
             <input type="number" id="phone_number" name="phone_number" min="0" max="99999999999999"><br><br>
 
-            <label for="height">Height (in cm):</label>
+            <label for="height"><b>Height (in cm)</b>:></label>
             <input type="number" id="height" name="height" min="100" max="250" placeholder="e.g. 179" step="any"><br><br>
 
-            <label for="weight">Weight (in kg):</label>
+            <label for="weight"><b>Weight (in kg):</b></label>
             <input type="number" id="weight" name="weight" min="20" max="300" step="0.01" pattern="^\d*(\.\d{0,2})?$" placeholder="e.g. 77.30"><br><br>
             <br>
 
-            <label for="weight">Volunteer Blood Donor </label> <br>
+            <label for="weight"><b>Volunteer Blood Donor</b></label> <br>
             <div class="custom-control custom-radio">
               <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
               <label class="custom-control-label" for="customRadio4">YES</label>
@@ -338,7 +337,7 @@
               <label class="custom-control-label" for="customRadio5">NO</label>
             </div> <br>
 
-            <label for="blood_type">Blood Type:</label>
+            <label for="blood_type"><b>Blood Type:</b></label>
             <select id="blood_type" name="blood_type">
                 <option selected="selected">Α-</option>
                 <option selected="selected">Α+</option>
@@ -356,7 +355,7 @@
               <label class="custom-control-label" for="customCheck1">I agree to the Terms & Conditions:</label>
             </div> <br>
 
-            <button type="submit" class="button">Sign up</button>
+            <button type="submit" class="button"><b>Sign up</b></button>
             <!-- <input type="submit" value="sbmt" /><br> -->
         </form>
 
