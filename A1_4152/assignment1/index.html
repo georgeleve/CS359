@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <!-- 
 TODO:   
     na valo to <fig> kapou
  4) Μορφοποιήστε & επισημειώστε συμβολοσειρές – 6%
-    facebook share group button
     na ftiaxo kalytera to website
     na valo bootstrap toulaxiston se 6 shmeia
     na steilo thn askhsh sto elearn
@@ -16,23 +14,22 @@ TODO:
         <meta name="description" content="Assignment 1 for hy359">
         <meta name="keywords" content="Portfolio Website">
         <meta name="author" content="Georgios Gerasimos Leventopoulos csd4152">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>George Leventopoulos</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  background-color: rgb(183, 248, 180);
-}
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-}
+    <style>
+        body {
+            background-color: rgb(148, 218, 200);
+        }
 
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: rgb(28, 182, 143);
+            }
+        }
     </style>
 
     <body>
@@ -54,11 +51,6 @@ body {
                 <li><a href="#">Projects</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
-
-            <form>
-                <input type="search" name="q" placeholder="Search query">
-                <input type="submit" value="Go!">
-            </form>
        
         </nav>
 
@@ -151,8 +143,9 @@ body {
         </ul>
 
         <br>
+
         <h1>Course Catalogue:</h1>
-        <table style="width:30%">
+        <table class="table table-striped" style="width:30%">
             <tr>
                 <th>Course Title</th>
                 <th>Grade</th>
@@ -328,17 +321,20 @@ body {
             Your browser does not support the video tag.
         </video>
 
+
         <h3>This is an  embed video from youtube:</h3>
-            <iframe width="420" height="315"
-            src="https://www.youtube.com/embed/tgbNymZ7vqY"> </iframe>
-            <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HadwRac82Pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
         <h3>Click share, to share something on Facebook:</h3>
-        <div class="fb-share-button" data-href="https://www.facebook.com/georgleventopoulos" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fgeorgleventopoulos&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        <div class="fb-share-button" data-href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.csd.uoc.gr%2FCSD%2Findex.jsp%3Flang%3Den&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        
         <footer>
             <p>Author: George Leve<br>
             <a href="leventopoulos.george@gmail.com.com">leventopoulos.george@gmail.com</a></p>
         </footer>
+
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="wIWBcfmG"></script>
     </body>
 
     <h2>Find me on Social Media:</h2>

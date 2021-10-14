@@ -1,5 +1,5 @@
 #form {
-    background-color: #FFF;
+    background-color: rgb(235, 225, 225);
     height: 600px;
     width: 600px;
     margin-right: auto;
@@ -13,7 +13,7 @@
 label {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 18px;
-    color: #333;
+    color: rgb(245, 235, 235);
     height: 20px;
     width: 200px;
     margin-top: 10px;
@@ -22,11 +22,12 @@ label {
     clear: both;
     float:left;
     margin-right:15px;
+    font-weight: bold;
 }
 input {
     height: 20px;
     width: 300px;
-    border: 1px solid #000;
+    border: 1px solid rgb(233, 223, 223);
     margin-top: 10px;
     float: left;
 }
@@ -43,7 +44,7 @@ select {
 p {
     height: 20px;
     width: 300px;
-    border: 1px solid #000;
+    border: 1px solid rgb(247, 243, 243);
     margin-top: 10px;
     float: left;
 }
