@@ -1,50 +1,75 @@
-#form {
-    background-color: rgb(235, 225, 225);
-    height: 600px;
-    width: 600px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 0px;
-    text-align:center;
+/* This is for the form */
+form {
+    background-color: lightblue;
+    text-align: center;
 }
+
 label {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 18px;
-    color: rgb(245, 235, 235);
-    height: 20px;
-    width: 200px;
-    margin-top: 10px;
-    margin-left: 10px;
-    text-align: right;
-    clear: both;
-    float:left;
-    margin-right:15px;
-    font-weight: bold;
+    width: 250px;
+    display: inline-block;
+
+    margin-top: 6px;
+    color: black;
+    font-size: 20px;
 }
-input {
-    height: 20px;
-    width: 300px;
-    border: 1px solid rgb(233, 223, 223);
-    margin-top: 10px;
-    float: left;
+
+input, button, select {
+    width: 250px;
+    display: inline-block;
+
+    margin-top: 6px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 20px;
 }
-input[type=button] {
-    float:none;
+
+option {
+    border: 3px solid black;
+    color: black;
+    font-size: 20px;
 }
-select {
-    height: 20px;
-    width: 300px;
-    border: 1px solid #000;
-    margin-top: 10px;
-    float: left;
+
+/* Change input when the user types something */
+input:focus {
+    border: 2px solid white;
 }
-p {
-    height: 20px;
-    width: 300px;
-    border: 1px solid rgb(247, 243, 243);
-    margin-top: 10px;
-    float: left;
+
+button{
+    background-color: lightblue;
+    cursor: pointer;
+    padding: 14px 20px;
+    text-align: center;
+    border: 3px solid black;
+    width:300px;
+}
+
+button:hover {
+    background-color: white;
+    color: rgb(14, 13, 13);
+}
+
+.container {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.signupform {
+    font-size: 40px;
+}
+
+input[type="checkbox"] {
+    margin-left: -100px;
+}
+
+.checkboxlabel {
+    width: 400px;
+}
+
+.sexlabel {
+    margin-left: -280px;
+}
+
+.bloodlabel {
+    margin-left: -250px;
 }

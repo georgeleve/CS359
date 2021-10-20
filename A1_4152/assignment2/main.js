@@ -5,5 +5,7 @@ function checkPasswords(){
     if (firstPassword !== secondPassword) {
         alert("Error! \"Password\" and \"Password Confirmation\" must be the same, please try again.\n")
     }
+    /*else{
+        alert("Success!!!\n")
+    }*/
 }
-
