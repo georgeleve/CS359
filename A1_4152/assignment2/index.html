@@ -58,8 +58,8 @@
                 <label class="custom-control-label" for="customRadio3">Other</label>
               </div><br>
             
-            <label for="amka"><b>AMKA:</b></label>
-            <input id='set3' type='text'  id="amka" name="amka" maxLength='11' minLength='11' pattern='[0-9]*' placeholder="(11 digits)" required><br><br>
+              <label for="amka"><b>AMKA:</b></label>
+              <input id='set3' type='text'  id="amka" name="amka" maxLength='11' minLength='11' pattern='[0-9]*' placeholder="(11 digits)" required><br><br>
 
               <label for="country"><b>Country:</b></label>
               <select id="country" name="country">
@@ -340,6 +340,7 @@
                 <label class="custom-control-label" for="customRadio5"><b>No</b></label>
               </div> <br>
 
+
               <label for="blood_type"><b>Blood Type:</b></label>
               <select id="blood_type" name="blood_type">
                   <option selected="selected">Α-</option>
@@ -353,12 +354,13 @@
                   <option selected="selected">Unknown</option>
               </select> <br><br>
               
+
               <div class="checkbox">
                 <label class="checkboxlabel" for="customCheck1"><b>I agree to the Terms & Conditions:</b></label>
                 <input type="checkbox" class="mycheckbox">
               </div> <br>
 
-              <button type="submit" onclick="checkPasswords()" class="button"><b>Sign up</b></button>
+              <input type="submit" class="btn btn-info" onclick="checkPasswords()" value="Submit">
               <!-- <input type="submit" value="sbmt" /><br> -->
           </form>
         </div>

@@ -20,13 +20,12 @@ for (i=0; i < 10; i++){
     console.log(i);
 }
 
-document.write("hellow world in js");
 
 function changeMessage(){
     document.getElementById("mytext").innerHTML = "Message changed successfully!!!";
 }
 
-document.write(5 + 6);
+/* document.write(5 + 6); */
 // alert(typeof(i));
 
 let x, y, z;
@@ -34,4 +33,17 @@ x = 4;
 y = 9;
 z = x + y;
 
-document.write("z=", z);
+function myFunction(txt) {
+    alert(txt);
+}
+var same = myFunction; // same as myFunction
+
+
+$(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+});

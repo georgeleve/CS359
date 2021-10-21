@@ -11,125 +11,114 @@ TODO:
 -->
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Assignment 1 for hy359">
+        <meta name="description" content="Assignment 1 Part1 for CS359">
         <meta name="keywords" content="Portfolio Website">
         <meta name="author" content="Georgios Gerasimos Leventopoulos csd4152">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>George Leventopoulos</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="main.js"></script>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
 
     <style>
-        body {
-            background-color: rgb(148, 218, 200);
-        }
 
-        @media only screen and (max-width: 600px) {
-            body {
-                background-color: rgb(28, 182, 143);
-            }
-        }
     </style>
 
     <body>
-        <script type="text/javascript" src="main.js"></script>
-        
-        <article>
-            <header>
-              <h1>A heading here</h1>
-              <p id="mytext"> Click the button below to change this message</p>
-            <button typ="button" onclick="changeMessage()">Click here!</button>
 
-              <p>Some additional information here</p>
-            </header>
-            <p>Lorem Ipsum dolor set amet....</p>
-          </article>
-
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About me</a></li>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">George Leventopoulos</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About Me</a></li>
                 <li><a href="#">Projects</a></li>
+                <li><a href="#">Blog</a></li>
                 <li><a href="#">Contact</a></li>
-            </ul>
-       
+              </ul>
+            </div>
         </nav>
 
-        <main>
-            <article>
-                <h4>Article heading</h4>
+        <div class="container">
+            <p>This is a paragraph and <mark>this is a mark</mark> </p>
+            <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy text on Windows.</p>
+            <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+        </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
-        
-                <h5>Subsection</h5>
-        
-                <p>Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.</p>
-        
-                <p>Pelientesque auctor nisi id magna consequat sagittis. Curabitur dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.</p>
-        
-                <h6>Another subsection</h6>
-        
-                <p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum soclis natoque penatibus et manis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
-        
-                <p>Vivamus fermentum semper porta. Nunc diam velit, adipscing ut tristique vitae sagittis vel odio. Maecenas convallis ullamcorper ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, is fringille sem nunc vet mi.</p>
+        <article>
+            <header>
+                <h1>A heading here</h1>
+                <p id="mytext"> Click the button below to change this message</p>
+                <button typ="button" onclick="changeMessage()">Click here!</button>
+            </header>
+        </article>
+
+        <main>
+            <article class="myarticle">
+                <h4>Article header h4</h4>
+                <p>This is a paragraph.</p>
+                <h5>Article header h5</h5>
+                <p>This is a paragraph.</p>
+                <p>This is a paragraph</p>
+                <h6>Article header h6</h6>
+                <p>This is a paragraph. </p>
             </article>
 
             <aside>
-                <h3>Related</h3>
+                <h3>This is "aside"</h3>
         
-                <ul>
-                  <li><a href="#">Oh I do like to be beside the seaside</a></li>
-                  <li><a href="#">Oh I do like to be beside the sea</a></li>
-                  <li><a href="#">Although in the North of England</a></li>
-                  <li><a href="#">It never stops raining</a></li>
-                  <li><a href="#">Oh well...</a></li>
-                </ul>
-              </aside>
-        
-            </main>
-
+                <div class="container">
+                    <h2>List Group With Contextual Classes</h2>
+                    <ul class="list-group">
+                      <li class="list-group-item list-group-item-success">First item</li>
+                      <li class="list-group-item list-group-item-info">Second item</li>
+                      <li class="list-group-item list-group-item-warning">Third item</li>
+                      <li class="list-group-item list-group-item-danger">Fourth item</li>
+                    </ul>
+                </div>
+            </aside>
         </main>
 
-        <p>Do not forget to buy <mark>milk</mark> today.</p>
-        <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy text (Windows).</p>
-        <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
 
-        
+
         <blockquote cite="http://www.worldwildlife.org/who/index.html">
             For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
-        </blockquote>
-        <p>Cryptids of Cornwall:</p>
+        </blockquote><br>
 
-        <dl>
-            <dt>Beast of Bodmin</dt>
-            <dd>A large feline inhabiting Bodmin Moor.</dd>
-
-            <dt>Morgawr</dt>
-            <dd>A sea serpent.</dd>
-
-            <dt>Owlman</dt>
-            <dd>A giant owl-like creature.</dd>
-        </dl>
+        <div class="container">
+            <h2>This is a dl Tag, a description list, with terms and descriptions::</h2>
+            <dl>
+                <dt>Cofee</dt>
+                <dd>A drink to keep you motivated.</dd>
+    
+                <dt>Eggs</dt>
+                <dd>Good breakfast choice.</dd>
+    
+                <dt>Linked List</dt>
+                <dd>You can reverse it easily.</dd>
+            </dl>  
+        </div>
 
         <article>
             <h1>This is a heading of an article</h1>
             <section>This is a section of an article</section>
-        </article>
-
-        <aside>
-            <p>The Rough-skinned Newt defends itself with a deadly neurotoxin.</p>
-        </aside>
+            <section>This is another section of an article</section>
+        </article><br>
         
-        <p>Several species of salamander inhabit the temperate rainforest of the Pacific Northwest, including the Ensatina, the Northwestern Salamander and the Rough-skinned Newt. Most salamanders are nocturnal, and hunt for insects, worms and other small creatures.</p>
-
-    
         <div>
-            <h2>this is a div element</h2>
+            <h2>Thats how to make a list of items in HTML</h2>
         </div>
-
         <h3>My Hobbies:</h3>
-        <ol>
+        <ol class="hobbies">
             <li>Programming</li>
             <li>Gym</li>
             <li>Cooking</li>
@@ -138,178 +127,191 @@ TODO:
         </ol>
         
         <h3>Favorite foods:</h3>
-        <ul start="30">
-            <li>Pastitsio</li>
-            <li>Gemista</li>
-            <li>Soutzoukakia</li>
-        </ul>
+        <ul class="list-group">
+            <li class="list-group-item">Pastitsio</li>
+            <li class="list-group-item">Gemista</li>
+            <li class="list-group-item">Spanakopita</li>
+            <li class="list-group-item">Soutzoukakia</li>
+        </ul><br>
 
-        <br>
+        <div class="container">
+            <h2>Course Catalogue:</h2>
+            <p>Try to search for a course:</p>  
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <br>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Course Title</th>
+                        <th>Grade</th>
+                        <th>Academic Year</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <tr>
+                        <td>[CS-110] Calculus I</td>
+                        <td>9.0</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-111] Calculus II</td>
+                        <td>8.0</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-120] Digital Design</td>
+                        <td>6.5</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-118] Discrete Mathematics</td>
+                        <td>5.5</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-108] English I</td>
+                        <td>5.0</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-109] English II</td>
+                        <td>5.0</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-100] Introduction to Computer Science</td>
+                        <td>7.5</td>
+                        <td>2018-19</td>
+                    </tr>
 
-        <h1>Course Catalogue:</h1>
-        <table class="table table-striped" style="width:30%">
-            <tr>
-                <th>Course Title</th>
-                <th>Grade</th>
-                <th>Acad.Year</th>
-            </tr>
+                    <tr>
+                        <td>[CS-119] Linear Algebra</td>
+                        <td>5.5</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-112] Physics I</td>
+                        <td>6.0</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-150] Programming</td>
+                        <td>7.0</td>
+                        <td>2018-19</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-215] Applied Mathematics for Engineers</td>
+                        <td>6.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-225] Computer Organization</td>
+                        <td>5.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-240] Data Structures</td>
+                        <td>6.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-208] English III</td>
+                        <td>10.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-209] English IV</td>
+                        <td>8.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-180] Logic</td>
+                        <td>7.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-252] Object-Oriented Programming</td>
+                        <td>8.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-217] Probability</td>
+                        <td>6.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-255] Software Technology Laboratory</td>
+                        <td>6.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-280] Theory of Computation</td>
+                        <td>8.0</td>
+                        <td>2019-20</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-380] Algorithms and Complexity Theory</td>
+                        <td>5.0</td>
+                        <td>2020-21</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-335] Computer Networks</td>
+                        <td>5.5</td>
+                        <td>2020-21</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-360] Files and Databases</td>
+                        <td>6.5</td>
+                        <td>2020-21</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-390.51] Introduction to Bioinformatics Programming with the
+                            Language R</td>
+                        <td>8.5</td>
+                        <td>2020-21</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-457] Introduction to Information Security Systems</td>
+                        <td>5.0</td>
+                        <td>2020-21</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-340] Languages and Compilers</td>
+                        <td>6.5</td>
+                        <td>2020-21</td>
+                    </tr>
+                    <tr>
+                        <td>[CS-345] Operating Systems</td>
+                        <td>6.5</td>
+                        <td>2020-21</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <tr>
-                <td>[CS-110] Calculus I</td>
-                <td>9.0</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-111] Calculus II</td>
-                <td>8.0</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-120] Digital Design</td>
-                <td>6.5</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-118] Discrete Mathematics</td>
-                <td>5.5</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-108] English I</td>
-                <td>5.0</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-109] English II</td>
-                <td>5.0</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-100] Introduction to Computer Science</td>
-                <td>7.5</td>
-                <td>2018-19</td>
-            </tr>
+        <script>
+            $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+        </script>
+    
+        <h2>I study at University of Crete. Find University Webpage <a href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en">here!</a> </h2> <br>
 
-            <tr>
-                <td>[CS-119] Linear Algebra</td>
-                <td>5.5</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-112] Physics I</td>
-                <td>6.0</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-150] Programming</td>
-                <td>7.0</td>
-                <td>2018-19</td>
-            </tr>
-            <tr>
-                <td>[CS-215] Applied Mathematics for Engineers</td>
-                <td>6.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-225] Computer Organization</td>
-                <td>5.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-240] Data Structures</td>
-                <td>6.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-208] English III</td>
-                <td>10.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-209] English IV</td>
-                <td>8.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-180] Logic</td>
-                <td>7.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-180] Logic</td>
-                <td>7.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-252] Object-Oriented Programming</td>
-                <td>8.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-217] Probability</td>
-                <td>6.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-255] Software Technology Laboratory</td>
-                <td>6.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-280] Theory of Computation</td>
-                <td>8.0</td>
-                <td>2019-20</td>
-            </tr>
-            <tr>
-                <td>[CS-380] Algorithms and Complexity Theory</td>
-                <td>5.0</td>
-                <td>2020-21</td>
-            </tr>
-            <tr>
-                <td>[CS-335] Computer Networks</td>
-                <td>5.5</td>
-                <td>2020-21</td>
-            </tr>
-            <tr>
-                <td>[CS-360] Files and Databases</td>
-                <td>6.5</td>
-                <td>2020-21</td>
-            </tr>
-            <tr>
-                <td>[CS-390.51] Introduction to Bioinformatics Programming with the
-                    Language R</td>
-                <td>8.5</td>
-                <td>2020-21</td>
-            </tr>
-            <tr>
-                <td>[CS-457] Introduction to Information Security Systems</td>
-                <td>5.0</td>
-                <td>2020-21</td>
-            </tr>
-            <tr>
-                <td>[CS-340] Languages and Compilers</td>
-                <td>6.5</td>
-                <td>2020-21</td>
-            </tr>
-            <tr>
-                <td>[CS-345] Operating Systems</td>
-                <td>6.5</td>
-                <td>2020-21</td>
-            </tr>
-        </table>
-
-        <h2>Visit my University Webpage
-            <a href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en">here!</a>
-        </h2>
-
-        <figure>
-            <img src="santorini.jpg" alt="Picture from Santorini" width="500" height="600">
-            <figcaption>This is a picture from Santorini, Greece.</figcaption>
-        </figure>
+        <div class="container">
+            <figure>
+                <h2>This is Santorini</h2>
+                <p>The .img-circle class shapes the image to a circle (not available in IE8):</p>            
+                <img src="santorini.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236"> 
+            </figure>
+        </div>
 
         <h3>This is the Mario Bros Theme Song:</h3>
         <div id="3" class="audio">
-            <!--audio tag-->
             <audio controls>
                 <source src="mario.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -319,20 +321,20 @@ TODO:
         <h3>This is a html video tag:</h3>
         <video width="320" height="240" autoplay muted>
             <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
+            <source src="movie.ogg" type="video/ogg"> 
             Your browser does not support the video tag.
         </video>
 
-
-        <h3>This is an  embed video from youtube:</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/HadwRac82Pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>This is an embed video from youtube:</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HadwRac82Pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+        clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
         
         <h3>Click share, to share something on Facebook:</h3>
-        <div class="fb-share-button" data-href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.csd.uoc.gr%2FCSD%2Findex.jsp%3Flang%3Den&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        <div class="fb-share-button" data-href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en" data-layout="button_count" data-size="large"><a target="_blank" 
+        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.csd.uoc.gr%2FCSD%2Findex.jsp%3Flang%3Den&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
         
         <footer>
-            <p>Author: George Leve<br>
-            <a href="leventopoulos.george@gmail.com.com">leventopoulos.george@gmail.com</a></p>
+            <p>Author: George Leve<br> leventopoulos.george@gmail.com</a></p>
         </footer>
 
         <div id="fb-root"></div>
