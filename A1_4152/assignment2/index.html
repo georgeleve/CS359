@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- <div style="background-image: url('image.jpg');"> -->
     <head>
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
@@ -22,10 +21,10 @@
               <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
               <label for="password1"><b>Password:</b></label>
-              <input type="password" minlength="8" maxlength="15"  id="password1" name="password1" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required><br><br>
+              <input type="password" minlength="8" maxlength="15"  id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required><br><br>
 
               <label for="password2"><b>Password Confirmation:</b></label>
-              <input type="password" minlength="8" maxlength="15"  id="password2" name="password2" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" required><br><br>
+              <input type="password" minlength="8" maxlength="15"  id="password2" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" required><br><br>
 
               <label for="usertype"><b>User Type:</b></label>
               <select id="usertype" name="usertype" required>
@@ -35,27 +34,27 @@
               </select><br><br>
 
               <label for="name"><b>Name:</b></label>
-              <input type="text" minlength="3" maxlength="30" size="30" id="name" name="name" pattern="[A-Za-z]{3,30}" required><br><br>
+              <input type="text" minlength="3" maxlength="30" size="30" id="name" name="firstname" pattern="[A-Za-z]{3,30}" required><br><br>
 
               <label for="surname"><b>Surname:</b></label>
-              <input type="text" minlength="3" maxlength="30" size="30" id="surname" name="surname" pattern="[A-Za-z]{3,30}" required><br><br>
+              <input type="text" minlength="3" maxlength="30" size="30" id="surname" name="lastname" pattern="[A-Za-z]{3,30}" required><br><br>
 
               <label for="birthday"><b>Birthday:</b></label>
-              <input type="date" id="birthday" name="birthday" value="1980-01-01" min="1920-01-01" max="2005-12-31" required> <br><br>
+              <input type="date" id="birthday" name="birthdate" value="1980-01-01" min="1920-01-01" max="2005-12-31" required><br><br>
               
               <div class="custom-control custom-radio">
-                <label for="customRadio1" class="sexlabel"><b>Sex:</b></label><br>
+                <label for="customRadio1" class="genderlabel"><b>Gender:</b></label><br>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio1" name="gender" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio1"> <b>Man</b></label>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio2" name="gender" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio2"><b>Woman</b></label>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio3" name="gender" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio3"><b>Other</b></label>
               </div><br>
             
@@ -314,17 +313,17 @@
                   <option value="Zimbabwe">Zimbabwe</option>
               </select> <br><br>
 
-              <label for="town"><b>Town:</b></label>
-              <input type="text" minlength="3" maxlength="50" id="town" name="town" required><br><br>
+              <label for="city"><b>City:</b></label>
+              <input type="text" name="city" id="city" minlength="3" maxlength="50" required><br><br>
               
               <label for="home_address"><b>Home Address:</b></label>
-              <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="home_address" required><br><br>
+              <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="address" required><br><br>
 
               <label for="tk"><b>TK:</b></label>
-              <input type="text" id="tk" name="tk" minLength='5' maxLength='5'  pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
+              <input type="text" id="tk" name="lat" minLength='5' maxLength='5' pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
 
               <label for="phone_number"><b>Phone Number:</b></label>
-              <input type="text" id="phone_number" name="phone_number" minLength='1' maxLength='14' pattern='[0-9]*' placeholder="(max 14 digits)" required><br><br>
+              <input type="text" id="phone_number" name="telephone" minLength='1' maxLength='14' pattern='[0-9]*' placeholder="(max 14 digits)" required><br><br>
 
               <label for="height"><b>Height (in cm):</b></label>
               <input type="number" id="height" name="height" min="100" max="250" placeholder="e.g. 179  (optional)" step="any"><br><br>
@@ -335,36 +334,33 @@
 
               <label for="weight" class="bloodlabel"><b>Volunteer Blood Donor:</b></label> <br>
               <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio4" name="blooddonor" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio4"><b>Yes</b></label>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio5" name="blooddonor" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio5"><b>No</b></label>
-              </div> <br>
+              </div><br>
 
               <label for="blood_type"><b>Blood Type:</b></label>
               <select id="blood_type" name="blood_type">
                   <option value="" disabled>Pick one</option>
-                  <option value="A">Α-</option>
-                  <option value="">Α+</option>
-                  <option value="">B-</option>
-                  <option value="">B+</option>
-                  <option value="">ΑB-</option>
-                  <option value="">ΑB+</option>
-                  <option value="">0-</option>
-                  <option value="">0+</option>
-                  <option value="">Unknown</option>
+                  <option value="A-">Α-</option>
+                  <option value="A+">Α+</option>
+                  <option value="B-">B-</option>
+                  <option value="B+">B+</option>
+                  <option value="AB-">ΑB-</option>
+                  <option value="AB+">ΑB+</option>
+                  <option value="0-">0-</option>
+                  <option value="0+">0+</option>
               </select> <br><br>
               
-
               <div class="checkbox">
                 <label class="checkboxlabel" for="customCheck1"><b>I agree to the Terms & Conditions:</b></label>
                 <input type="checkbox" id="customCheck1" class="mycheckbox">
               </div> <br>
 
               <input type="submit" class="btn btn-info" onclick="checkPasswords()" value="Submit">
-              <!-- <input type="submit" value="sbmt" /><br> -->
           </form>
         </div>
 
