@@ -1,3 +1,4 @@
+<!-- Geogios Gerasimos Leventopoulos csd4152 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,12 +6,12 @@
         <meta name="description" content="Assignment 1 Part1 for CS359">
         <meta name="keywords" content="Portfolio Website">
         <meta name="author" content="Georgios Gerasimos Leventopoulos csd4152">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>George Leventopoulos</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="main.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
@@ -31,83 +32,71 @@
             </div>
         </nav>
 
-        <div class="container">
-            <p>Hello, my name is<mark>George Leventopoulos</mark> </p>
-            <p>I study <kbd>Computer Science</kbd> at University of Crete.</p>
-            <p>I started at <abbr title="me">September 2018</abbr>.</p>
-        </div>
-
-        <article>
-            <header>
-                <h1>A heading here</h1>
-                <p id="mytext"> Click the button below to change this message</p>
-                <button type="button" onclick="changeMessage()">Click here!</button>
-            </header>
-        </article>
-
         <main>
+            <div class="container">
+                <p>Hello, my name is<mark>George Leventopoulos</mark> </p>
+                <p>I study <kbd>Computer Science</kbd> at University of Crete.</p>
+                <p>I started on  <abbr title="me"> September 2018</abbr>.</p>
+            </div>
+
+
             <article class="myarticle">
-                <h4>Article header h4</h4>
-                <p>This is a paragraph.</p>
-                <h5>Article header h5</h5>
-                <p>This is a paragraph.</p>
-                <p>This is a paragraph</p>
-                <h6>Article header h6</h6>
-                <p>This is a paragraph. </p>
+                <h3>About me</h3>
+                <p>
+                    I' m a 4th year Computer Science Student at <a href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en">University of Crete</a>.
+                    During my undergraduate studies,  <br>
+                     I am also working part-time as a Research Assistant in the Institute of Computer Science at <a href="https://www.forth.gr/">FORTH</a>.
+                     I like to build cool things using coding. <br>
+                </p><br>
+                <section> <h5> <b>My interest are:</b></h5></section>
+                <p>Web Development (Front-end & Back-end), Web Automation, CyberSecurity, Android Development, Data Structures, Algorithms.</p>
+                <h6>Find my github page <a href=" https://github.com/georgeleve">here</a></h6>
+            </article><br>
+    
+            <article>
+                <header>
+                    <h1>Info about my University</h1>
+                    <p id="mytext"> You can see below:</p>
+                </header>
             </article>
 
             <aside>
-                <h3>This is "aside"</h3>
+                <h3>Skills</h3>
         
                 <div class="container">
-                    <h2>This is a list </h2>
+                    <h2>Programming Languages I used in the past:</h2>
                     <ul class="list-group">
-                      <li class="list-group-item list-group-item-success">I don't</li>
-                      <li class="list-group-item list-group-item-info">know</li>
-                      <li class="list-group-item list-group-item-warning">wtf</li>
-                      <li class="list-group-item list-group-item-danger">is that</li>
+                      <li class="list-group-item list-group-item-info">Java</li>
+                      <li class="list-group-item list-group-item-info">C</li>
+                      <li class="list-group-item list-group-item-info">C++</li>
+                      <li class="list-group-item list-group-item-info">Python</li>
+                      <li class="list-group-item list-group-item-info">SQL</li>
+                      <li class="list-group-item list-group-item-info">Javascript</li>
+                      <li class="list-group-item list-group-item-info">Prolog</li>
                     </ul>
                 </div>
             </aside>
         </main>
 
-
-
-        <blockquote cite="http://www.worldwildlife.org/who/index.html">
-            For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+        <blockquote cite="https://www.csd.uoc.gr/CSD/index.jsp?lang=en">
+            The Computer Science Department of the University of Crete offers an undergraduate and postgraduate program of high
+             quality and conducts research with tangible and important results in areas of significance for the industry and the society. The educational and
+             research activities of the Department cover a wide scope of basic and applied areas in Computer Science.
         </blockquote><br>
 
         <div class="container">
-            <h2>This is a dl Tag, a description list, with terms and descriptions::</h2>
+            <h2>Some projects I did in the previous years:</h2>
             <dl>
-                <dt>Cofee</dt>
-                <dd>A drink to keep you motivated.</dd>
-    
-                <dt>Eggs</dt>
-                <dd>Good breakfast choice.</dd>
-    
-                <dt>Linked List</dt>
-                <dd>You can reverse it easily.</dd>
+                <dt>Encyption Algorithms</dt>
+                <dd><a href="https://github.com/georgeleve/CS457-Introduction-to-Security-Systems"><span style="color: rgb(132, 216, 255)"> <b>Encryption Algorithms:</b></span> </a> implemented in C (Caesars, Affine, Feistel, Playfair cipher)</dd>
+                <dt>Hospital Database</dt>
+                <dd><a href="https://github.com/georgeleve/CS360"><span style="color: rgb(132, 216, 255)"> <b>Hospital Database:</b></span> </a> Technologies that we used: Java, JDBC, SQL, MySQL, phpMyAdmin, XAMPP</dd>
+                <dt>Sorry! game</dt>
+                <dd><a href="https://github.com/georgeleve/CS-252-SorryGame-MVC-Architecture"><span style="color: rgb(132, 216, 255)"> <b>Sorry! game:</b></span> </a> implemented in Java </dd>
+                <dt>Compilers</dt>
+                <dd><a href="https://github.com/georgeleve/CS340"><span style="color: rgb(132, 216, 255)"> <b>Compilers:</b></span> </a> implemented a Compiler from scratch</dd>
             </dl>  
         </div>
-
-        <article>
-            <h1>This is a heading of an article</h1>
-            <section> <h2>This is a section of an article</h2></section>
-            <section> <h2>This is another section of an article </h2></section>
-        </article><br>
-        
-        <div>
-            <h2>Thats how to make a list of items in HTML</h2>
-        </div>
-        <h3>My Hobbies:</h3>
-        <ol class="hobbies">
-            <li>Programming</li>
-            <li>Gym</li>
-            <li>Cooking</li>
-            <li>Travelling</li>
-            <li>Crypto</li>
-        </ol>
         
         <h3>Favorite foods:</h3>
         <ul class="list-group">
@@ -115,6 +104,7 @@
             <li class="list-group-item">Gemista</li>
             <li class="list-group-item">Spanakopita</li>
             <li class="list-group-item">Soutzoukakia</li>
+            <li class="list-group-item">Souvlaki</li>
         </ul><br>
 
         <div class="container">
@@ -282,26 +272,38 @@
                 });
             });
         </script>
-    
-        <h2>Find University of Crete webpage <a href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en">here!</a> </h2> <br>
 
+    <div>
+        <h2>Find University of Crete website <a href="https://www.csd.uoc.gr/CSD/index.jsp?lang=en">here!</a> </h2> <br>
+
+        <h2>This is a list:</h2>
+    </div>
+
+    <h3>My Hobbies</h3>
+    <ol class="hobbies">
+        <li>Programming</li>
+        <li>Gym</li>
+        <li>Cooking</li>
+        <li>Travelling</li>
+    </ol><br>
         <div class="container">
             <figure>
                 <h2>This is a picture from my University..</h2>
-                <p>The University of Crete</p>            
-                <img src="santorini.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236"> 
+                <p>University of Crete</p>            
+                <img src="csd.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
+                <figcaption>Computer Science Department</figcaption>
             </figure>
         </div>
 
-        <h3>This is the Mario Bros Theme Song:</h3>
+        <h3>Super Mario Bros Theme Song:</h3>
         <div id="3" class="audio">
             <audio controls>
                 <source src="mario.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio> 
-        </div>
+        </div><br>
 
-        <h3>This is a html video tag:</h3>
+        <h3>This is a random video I found online:</h3>
         <video width="320" height="240" autoplay muted>
             <source src="movie.mp4" type="video/mp4">
             <source src="movie.ogg" type="video/ogg"> 
@@ -317,7 +319,7 @@
         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.csd.uoc.gr%2FCSD%2Findex.jsp%3Flang%3Den&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
         
         <footer>
-            <p>Author: George Leve<br> leventopoulos.george@gmail.com</p>
+            <p>Author: George Leve<br> email: leventopoulos.george@gmail.com</p>
         </footer>
 
         <div id="fb-root"></div>

@@ -1,3 +1,5 @@
+// Just playing around with Javascript
+
 console.log("Hello world !!!");
 
 var str = "my name is george";
@@ -20,7 +22,6 @@ for (i=0; i < 10; i++){
     console.log(i);
 }
 
-
 function changeMessage(){
     document.getElementById("mytext").innerHTML = "Message changed successfully!!!";
 }
@@ -37,7 +38,6 @@ function myFunction(txt) {
     alert(txt);
 }
 var same = myFunction; // same as myFunction
-
 
 $(document).ready(function(){
     $("#myInput").on("keyup", function() {
