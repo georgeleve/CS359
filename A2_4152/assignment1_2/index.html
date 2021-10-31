@@ -16,8 +16,9 @@
     <body>
         <script src="main.js"></script>
         <div class="container">
-          <form>
+          <form id="myform" name="myform">
               <h1>Sign up</h1><br><br>
+              
 
               <label for="username"> <b>Username:</b></label>
               <input type="text" minlength="8" id="username" name="username" pattern="[A-Za-z]{8,}" required><br><br>
@@ -25,23 +26,31 @@
               <label for="email"> <b>Email:</b></label>
               <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
-              <input type="checkbox" onclick="myFunction1()">Show Password
+              <input type="checkbox" onclick="hidePassword1()">Show Password
               <label for="password1"><b>Password:</b></label>
-              <input type="password" minlength="8" maxlength="15"  id="password1" name="password" onchange="checkPasswords()" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required><br><br>
-              
-              <input type="checkbox" onclick="myFunction2()">Show Password
-              <label for="password2"><b>Password Confirmation:</b></label>
-              <input type="password" minlength="8" maxlength="15"  id="password2" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" required><br><br>
-              <span id='message'>message</span>
+              <input type="password" minlength="8" maxlength="15"  id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required><br><br>
 
+              <input type="checkbox" class="checkpassword1" onclick="hidePassword2()">Show Password
+              <label for="password2"><b>Password Confirmation:</b></label>
+              <input type="password" minlength="8" maxlength="15"  id="password2" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" onchange="checkForm()" required><br><br>
+              
               <label for="usertype"><b>User Type:</b></label>
-              <select id="usertype" name="usertype" required>
+              <select id="usertype" name="usertype" onchange="showOrHide();" required>
                   <option value="" disabled>Choose User Type</option>
                   <option value="simple_user" selected>Simple User</option>
                   <option value="doctor">Doctor</option>
-              </select><br><br>
+              </select>
+              
+              <select id="doctortype" name="doctortype" required>
+                <option value="" disabled>Choose Doctor Type</option>
+                <option value="general_practitioner" selected>General Practitioner</option>
+                <option value="internist">Internist</option>
+              </select>
 
-              <label for="name"><b>Name:</b></label>
+              <label for="usertype" id="doctorlabel">Information about the doctor: </label><br>
+              <textarea id="textarea" name="textarea" rows="8" cols="50"> </textarea><br>
+
+              <label for="surname"><b>Firstname:</b></label>
               <input type="text" minlength="3" maxlength="30" size="30" id="name" name="firstname" pattern="[A-Za-z]{3,30}" required><br><br>
 
               <label for="surname"><b>Surname:</b></label>
@@ -67,7 +76,7 @@
               </div><br>
             
               <label for="amka"><b>AMKA:</b></label>
-              <input type='text'  id="amka" name="amka" maxLength='11' minLength='11'  pattern='[0-9]*' placeholder="(11 digits)" required><br><br>
+              <input type='text' id="amka" name="amka" maxLength='11' minLength='11'  pattern='[0-9]*' placeholder="(11 digits)" required><br><br>
 
               <label for="country"><b>Country:</b></label>
               <select id="country" name="country">
@@ -324,7 +333,7 @@
               <label for="city"><b>City:</b></label>
               <input type="text" name="city" id="city" minlength="3" maxlength="50" required><br><br>
               
-              <label for="home_address"><b>Home Address:</b></label>
+              <label for="home_address" id="address"><b>Home Address:</b></label>  <!--Doctor's Office Address-->
               <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="address" required><br><br>
 
               <label for="tk"><b>TK:</b></label>
@@ -361,14 +370,15 @@
                   <option value="AB+">ΑB+</option>
                   <option value="0-">0-</option>
                   <option value="0+">0+</option>
-              </select> <br><br>
+              </select> <br><br> 
+            
               
               <div class="checkbox">
                 <label class="checkboxlabel" for="customCheck1"><b>I agree to the Terms & Conditions:</b></label>
-                <input type="checkbox" id="customCheck1" class="mycheckbox">
+                <input type="checkbox" id="checkbox" class="termsandconditions">
               </div> <br>
 
-              <input type="submit" class="btn btn-info" onclick="checkPasswords()" value="Submit">
+              <input type="submit" class="btn btn-info" value="Submit" onclick="checkForm();">
           </form>
         </div>
 

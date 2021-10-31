@@ -67,6 +67,7 @@ input[type="checkbox"] {
     margin-left: -100px;
 }
 
+
 .checkboxlabel {
     width: 400px;
 }
@@ -77,4 +78,12 @@ input[type="checkbox"] {
 
 .bloodlabel {
     margin-left: -250px;
+}
+
+#textarea, #doctorlabel, #doctortype {
+    display: none;
+}
+
+#textarea {
+    resize: none;
 }
