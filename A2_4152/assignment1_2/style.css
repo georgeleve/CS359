@@ -80,10 +80,13 @@ input[type="checkbox"] {
     margin-left: -250px;
 }
 
-#textarea, #doctorlabel, #doctortype {
+#doctorlabel, #doctortype {
     display: none;
+    align-self: center;
+    text-align: center;
 }
 
 #textarea {
     resize: none;
+    display: none;
 }

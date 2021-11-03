@@ -57,9 +57,9 @@ function checkPasswordStrength(){
   var text = document.getElementById("password2").value;
   passwordSize = text.length;
   alert(text);
-  counter = text.replace(/[^0-9]/g,"").length
+  digitsCounter = text.replace(/[^0-9]/g,"").length 
   
-  if ((passwordSize) <= (counter/2)){
+  if ((passwordSize) <= (digitsCounter/2)){
     alert("weak password");
   }
 
