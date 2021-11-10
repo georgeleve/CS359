@@ -25,14 +25,18 @@
               <label for="email"> <b>Email:</b></label>
               <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
-              <input type="checkbox" onclick="hidePassword1()">Show Password
+              <input type="checkbox" onclick="hidePassword1();">Show Password
               <label for="password1"><b>Password:</b></label>
               <input type="password" minlength="8" maxlength="15"  id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required><br><br>
 
-              <input type="checkbox" class="checkpassword1" onclick="hidePassword2()">Show Password
+              <input type="checkbox" class="checkpassword1" onclick="hidePassword2();">Show Password
               <label for="password2"><b>Password Confirmation:</b></label>
-              <input type="password" minlength="8" maxlength="15"  id="password2" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" onchange="checkForm()" required><br><br>
-              
+              <input type="password" minlength="8" maxlength="15"  id="password2" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" required><br>
+              <div id="passwordErrorMessage" style="color: #FFFF00;">-</div> <br>
+
+              <button onclick="checkPassword1Strength();">See 1st password strength</button>
+              <div id="passwordStrengthMessage">-</div>
+
               <label for="usertype"><b>User Type:</b></label>
               <select id="usertype" name="usertype" onchange="showOrHide();" required>
                   <option value="" disabled>Choose User Type</option>
@@ -75,7 +79,8 @@
               </div><br>
             
               <label for="amka"><b>AMKA:</b></label>
-              <input type='text' id="amka" name="amka" maxLength='11' minLength='11'  pattern='[0-9]*' placeholder="(11 digits)" required><br><br>
+              <input type='text' id="amka" name="amka" maxLength='11' minLength='11'  pattern='[0-9]*' placeholder="(11 digits)" required><br>
+              <div id="amkaAndDateErrorMessage" style="color: #FFFF00;">-</div><br>
 
               <label for="country"><b>Country:</b></label>
               <select id="country" name="country">
@@ -332,10 +337,10 @@
               <label for="city"><b>City:</b></label>
               <input type="text" name="city" id="city" minlength="3" maxlength="50" required><br><br>
               
-              <label for="home_address" id="address"><b>Home Address:</b></label>  <!--Doctor's Office Address-->
+              <label for="home_address" id="address"><b>Home Address:</b></label>
               <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="address" required><br><br>
 
-              <label for="tk"><b>TK:</b></label>
+              <label for="tk"><b>Zip Code:</b></label>
               <input type="text" id="tk" name="lat" minLength='5' maxLength='5' pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
 
               <label for="phone_number"><b>Phone Number:</b></label>
@@ -369,15 +374,16 @@
                   <option value="AB+">ΑB+</option>
                   <option value="0-">0-</option>
                   <option value="0+">0+</option>
-              </select> <br><br> 
-            
-              
+              </select> <br><br>
+
               <div class="checkbox">
                 <label class="checkboxlabel" for="customCheck1"><b>I agree to the Terms & Conditions:</b></label>
-                <input type="checkbox" id="checkbox" class="termsandconditions">
-              </div> <br>
+                <input type="checkbox" id="mycheckbox" class="termsandconditions">
+              </div>
+              
+              <div id="checkboxErrorMessage" style="color: #FFFF00;" >-</div><br>
 
-              <input type="submit" class="btn btn-info" value="Submit" onclick="checkForm();">
+              <input type="submit" class="btn btn-info" value="Submit" onclick="return submitForm();"><br>
           </form>
         </div>
 

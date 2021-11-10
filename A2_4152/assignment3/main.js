@@ -13,6 +13,7 @@ game.cells[5]=[null,null,null,null,null,null,null,null];
 
 function newGame(){
     var turn = "player1";
+    //
     //initialize infobox, variables etc
 }
 
@@ -36,7 +37,7 @@ function getPlayerTurn(){
 
 //checks if this move is valid
 function isValidMove(){
-
+    return true;
 
 
 }
