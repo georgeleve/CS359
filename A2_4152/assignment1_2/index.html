@@ -14,7 +14,11 @@
     </head>
 
     <body>
+        <div id="Map" style="height:600px; width:700px"></div>
+        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+
         <script src="main.js"></script>
+        
         <div class="container">
           <form id="myform" name="myform">
               <h1>Sign up</h1><br><br>
@@ -54,7 +58,7 @@
                 <option value="internist">Internist</option>
               </select>
 
-              <label for="usertype" id="doctorlabel"><b>Information about the doctor:</b> </label><br>
+              <label for="usertype" id="doctorlabel"><b>Information about the doctor:</b> </label>
               <textarea id="textarea" name="textarea" rows="8" cols="50"  maxlength = "500"> </textarea>
 
               <label for="surname"><b>Firstname:</b></label>
@@ -344,8 +348,16 @@
               <label for="home_address" id="address"><b>Home Address:</b></label>
               <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="address" required><br><br>
 
+              <label for="amka"><b>Address Number:</b></label>
+              <input type='text' id="addressNumber" name="addressNumber" maxLength='10' minLength='1'  pattern='[0-9]*' placeholder="" required><br><br>
+
               <button onclick="loadDoc();" id="addressExistsButton">Check if address exists</button> 
               <div id="checkAddress" style="color: #FFFF00;">-</div><br>
+
+
+              <button onclick="displayLocation();" id="displayLocationButton">See location in OSM maps</button>
+              <div id='divID'></div><br>
+             
 
               <label for="tk"><b>Zip Code:</b></label>
               <input type="text" id="tk" name="lat" minLength='5' maxLength='5' pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
@@ -390,12 +402,13 @@
               
               <div id="checkboxErrorMessage" style="color: #FFFF00;" >-</div><br>
 
-              <input type="submit" class="btn btn-info" value="Submit" id="mymy" onclick="return submitForm();"><br>
+              <input type="submit" class="btn btn-info" value="Submit" id="submitButton" onclick="return submitForm();"><br>
           </form>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
     </body>
 </html>

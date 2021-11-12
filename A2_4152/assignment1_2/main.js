@@ -120,6 +120,9 @@ function hidePassword2() {
     }
 }
 
+var lon;
+var lat;
+var address;
 // RAPID API
 function loadDoc() {
   //initialize
@@ -137,9 +140,9 @@ function loadDoc() {
       }
 
       const obj = JSON.parse(xhr.responseText);
-      var displayName = obj[0].display_name;
-      var lon = obj[0].lon;
-      var lat = obj[0].lat;
+      var displayName = obj[0].display_name; // pick the first address as most relevant
+      lon = obj[0].lon;
+      lat = obj[0].lat;
 
       if(displayName.includes('Crete') === false){
         document.getElementById("checkAddress").innerHTML = "Sorry, this service is only available in Crete at this moment."; 
@@ -152,11 +155,13 @@ function loadDoc() {
   });
 
   // my input
-  var addressName=document.getElementById("address").value; //"Chandakos";
-  //var number=document.getElementById("number").value; //18;
+  var addressName=document.getElementById("home_address").value; //"Chandakos";
+  var addressNumber=document.getElementById("addressNumber").value; //18;
   var city=document.getElementById("city").value; // "Heraklion";
   var country=document.getElementById("country").value; //"Greece";
-  var address = addressName + " " + city + " " + country;
+  address=addressName+" "+addressNumber+" "+city+" "+country;
+  //address = "Chandakos 18 Heraklion Greece";
+  alert(address);
 
     //the request
   xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q="+ address +"&accept-language=en&polygon_threshold=0.0");
@@ -164,3 +169,79 @@ function loadDoc() {
   xhr.setRequestHeader("x-rapidapi-key", "2a6c4b07eamsh983963b34f4346fp1a7807jsnbf252b9be9e4");
   xhr.send(data);
 }
+
+
+//OSM MAPS
+
+//Orismos Thesis
+function setPosition(lat, lon){
+  var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+  var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+  var position       = new OpenLayers.LonLat(lon, lat).transform( fromProjection, toProjection);
+  return position;
+}
+
+//Orismos Handler
+function handler(position, message){
+  var popup = new OpenLayers.Popup.FramedCloud(
+    "Popup", 
+    position, null,
+    message, null,
+    true // <-- true if we want a close (X) button, false otherwise
+  );
+  map.addPopup(popup);
+  var div = document.getElementById('divID');
+  div.innerHTML += 'Energopoitihike o Handler<br>';
+}
+
+
+function displayLocation(){
+  //Orismos Marker
+  map = new OpenLayers.Map("Map");
+  var mapnik = new OpenLayers.Layer.OSM();
+  map.addLayer(mapnik);
+
+  //Markers	
+  var markers = new OpenLayers.Layer.Markers("Markers");
+  map.addLayer(markers);
+
+  //Protos Marker	
+  var position=setPosition(lat, lon);
+  var mar=new OpenLayers.Marker(position);
+  markers.addMarker(mar);	
+  mar.events.register('mousedown', mar, function(evt) { 
+    handler(position, address); //this is my address
+  });
+  
+  //Orismos zoom	
+  const zoom = 2;
+  map.setCenter(position, zoom);
+}
+
+function resetMap() {
+
+
+}
+
+
+
+// Erothma c)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
