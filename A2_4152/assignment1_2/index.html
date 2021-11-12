@@ -21,37 +21,41 @@
 
               <label for="username"> <b>Username:</b></label>
               <input type="text" minlength="8" id="username" name="username" pattern="[A-Za-z]{8,}" required><br><br>
-
+              
               <label for="email"> <b>Email:</b></label>
               <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
-              <input type="checkbox" onclick="hidePassword1();">Show Password
               <label for="password1"><b>Password:</b></label>
-              <input type="password" minlength="8" maxlength="15"  id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required><br><br>
+              <input type="password" minlength="8" maxlength="15"  id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required>
+              <input type="checkbox" onclick="hidePassword1();" id="showpassword1">Show Password
 
-              <input type="checkbox" class="checkpassword1" onclick="hidePassword2();">Show Password
+              <br><br>
+
               <label for="password2"><b>Password Confirmation:</b></label>
               <input type="password" minlength="8" maxlength="15"  id="password2" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" required><br>
+              <input type="checkbox" class="checkpassword1" onclick="hidePassword2();" id="showpassword2">Show Password
+             
               <div id="passwordErrorMessage" style="color: #FFFF00;">-</div> <br>
 
-              <button onclick="checkPassword1Strength();">See 1st password strength</button>
-              <div id="passwordStrengthMessage">-</div>
+              <button onclick="checkPassword1Strength();" id="passwordStrengthButton">See password strength</button> 
+              <div id="passwordStrengthMessage" style="color: #FFFF00;">-</div><br>
 
               <label for="usertype"><b>User Type:</b></label>
               <select id="usertype" name="usertype" onchange="showOrHide();" required>
                   <option value="" disabled>Choose User Type</option>
                   <option value="simple_user" selected>Simple User</option>
                   <option value="doctor">Doctor</option>
-              </select>
+              </select><br>
               
+              <br>
               <select id="doctortype" name="doctortype" required>
                 <option value="" disabled>Choose Doctor Type</option>
                 <option value="general_practitioner" selected>General Practitioner</option>
                 <option value="internist">Internist</option>
               </select>
 
-              <label for="usertype" id="doctorlabel">Information about the doctor: </label><br>
-              <textarea id="textarea" name="textarea" rows="8" cols="50"> </textarea><br>
+              <label for="usertype" id="doctorlabel"><b>Information about the doctor:</b> </label><br>
+              <textarea id="textarea" name="textarea" rows="8" cols="50"  maxlength = "500"> </textarea>
 
               <label for="surname"><b>Firstname:</b></label>
               <input type="text" minlength="3" maxlength="30" size="30" id="name" name="firstname" pattern="[A-Za-z]{3,30}" required><br><br>
@@ -340,6 +344,9 @@
               <label for="home_address" id="address"><b>Home Address:</b></label>
               <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="address" required><br><br>
 
+              <button onclick="loadDoc();" id="addressExistsButton">Check if address exists</button> 
+              <div id="checkAddress" style="color: #FFFF00;">-</div><br>
+
               <label for="tk"><b>Zip Code:</b></label>
               <input type="text" id="tk" name="lat" minLength='5' maxLength='5' pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
 
@@ -355,11 +362,11 @@
 
               <label for="weight" class="bloodlabel"><b>Volunteer Blood Donor:</b></label> <br>
               <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio4" name="blooddonor" class="custom-control-input">
+                <input type="radio" id="customRadio4" name="bloodDonor" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio4"><b>Yes</b></label>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio5" name="blooddonor" class="custom-control-input">
+                <input type="radio" id="customRadio5" name="bloodDonor" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio5"><b>No</b></label>
               </div><br>
 
@@ -383,7 +390,7 @@
               
               <div id="checkboxErrorMessage" style="color: #FFFF00;" >-</div><br>
 
-              <input type="submit" class="btn btn-info" value="Submit" onclick="return submitForm();"><br>
+              <input type="submit" class="btn btn-info" value="Submit" id="mymy" onclick="return submitForm();"><br>
           </form>
         </div>
 

@@ -77,7 +77,7 @@ function isWeakPassword(password){
   atLeastHalfOfPasswordAreNumbers(password) || atLeastHalfOfPasswordContainsASpecificCharacter(password);
 }
 
-function changeStrengthMessage(password_strength){
+function changePasswordStrength(password_strength){
   document.getElementById("passwordStrengthMessage").innerHTML = password_strength;
 }
 
@@ -87,11 +87,11 @@ function checkPassword1Strength(){
   let password = document.getElementById("password1").value;
 
   if (isWeakPassword(password) && password.length>0){
-    changeStrengthMessage("weak password");
+    changePasswordStrength("weak password");
   }else if (isStrongPassword()) {
-    changeStrengthMessage("strong password");
+    changePasswordStrength("strong password");
   }else {
-    changeStrengthMessage("medium password");
+    changePasswordStrength("medium password");
   }
 }
 
@@ -120,14 +120,47 @@ function hidePassword2() {
     }
 }
 
-/*
-function makeAjaxReq() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    if (this.readyState = 4 && this.status = 200) {
-    document.getElementById('demo').innerHTML
-    = this.responseText; } };
-    xhttp.open('GET' , 'http://myserver.com/servlet' ,
-    true);
-    xhttp.send();
-}*/
+// RAPID API
+function loadDoc() {
+  //initialize
+  const data = null;
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+
+  // what I do when the data arrive
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      //console.log(this.responseText);
+      //alert(this.responseText);
+      if(this.responseText === "{}"){
+        document.getElementById("checkAddress").innerHTML = "Sorry, we couldn't find this address."; 
+      }
+
+      const obj = JSON.parse(xhr.responseText);
+      var displayName = obj[0].display_name;
+      var lon = obj[0].lon;
+      var lat = obj[0].lat;
+
+      if(displayName.includes('Crete') === false){
+        document.getElementById("checkAddress").innerHTML = "Sorry, this service is only available in Crete at this moment."; 
+      }else {
+        document.getElementById("checkAddress").innerHTML = "Success !!! This address is located in Crete."; 
+      }
+    }else {
+      //alert("Error on rapid api");
+    }
+  });
+
+  // my input
+  var addressName=document.getElementById("address").value; //"Chandakos";
+  //var number=document.getElementById("number").value; //18;
+  var city=document.getElementById("city").value; // "Heraklion";
+  var country=document.getElementById("country").value; //"Greece";
+  var address = addressName + " " + city + " " + country;
+
+    //the request
+  xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q="+ address +"&accept-language=en&polygon_threshold=0.0");
+  xhr.setRequestHeader("x-rapidapi-host", "forward-reverse-geocoding.p.rapidapi.com");
+  xhr.setRequestHeader("x-rapidapi-key", "2a6c4b07eamsh983963b34f4346fp1a7807jsnbf252b9be9e4");
+  xhr.send(data);
+}

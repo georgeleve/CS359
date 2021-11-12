@@ -4,6 +4,7 @@ const game = {
     cells: [],
     winner: false
 };
+
 game.cells[0]=[null,null,null,null,null,null,null,null];
 game.cells[1]=[null,null,null,null,null,null,null,null];
 game.cells[2]=[null,null,null,null,null,null,null,null];
@@ -39,7 +40,6 @@ function getPlayerTurn(){
 function isValidMove(){
     return true;
 
-
 }
 
 function hasPlayerWon(x,y){
@@ -54,7 +54,7 @@ function hasPlayerWon(x,y){
 
 //check for vertical win
 function verticalWin(col){
-    const temp=[game.cells[0][col],game.cells[1][col],game.cells[2][col]];
+    const temp=[game.cells[0][col],game.cells[1][col],game.cells[2][col],game.cells[3][col]];
     if(temp.filter(filterFunc).length===3){
         return true;
     }
@@ -63,7 +63,7 @@ function verticalWin(col){
 
 //check for horizontal win
 function horizontalWin(row){
-    if(game.cells[row].filter(filterFunc).length===3){
+    if(game.cells[row].filter(filterFunc).length===4){
         return true;
     }
     return false;
@@ -74,8 +74,7 @@ function diagonialWin(){
     if(game.cells[0][0]==game.cells[1][1] && game.cells[1][1]==game.cells[2][2] && game.cells[2][2]==game.plays){
         return true;
     }
-    else if(game.cells[0][2]==game.cells[1][1] && game.cells[1][1]==game.cells[2][0] &&
-        game.cells[2][0]==game.plays){
+    else if(game.cells[0][2]==game.cells[1][1] && game.cells[1][1]==game.cells[2][0] && game.cells[2][0]==game.plays){
         return true;
     }
     return false;
@@ -93,7 +92,7 @@ function updatePage(){
 }
 
 function changePlayerTurn(){
-
+    
 
 }
 

@@ -4,16 +4,41 @@
     <head>
         <script src="main.js"></script>
         <link rel="stylesheet" href="style.css">
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Event', 'Times'],
+              ['Draws', 7],
+              ['Red Player Wins', 2],
+              ['Yellow Player Wins', 2],
+            ]);
+    
+            var options = {
+              title: 'Game Statistics',
+              is3D: true,
+            };
+    
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+          }
+        </script>
     </head>
 
     <body>
         <div class="info-box" data-role="infobox">
             <span class="button square closer"></span>
-            <div class="info-box-content">
+            <div class="info-box-content" id="message">
                 <h3>Infobox</h3>
                 <p>Player:</p>
                 <p>Total Moves:</p>
                 <p>Empty Cells:</p>
+                <p>Draws:</p>
+                <p>Red Player Wins:</p>
+                <p>Yellow Player Wins:</p>
             </div>
         </div>
         
@@ -77,6 +102,8 @@
                 </table>
             </div>    
         </div>
-        <div class="column" id="message" style="backgroundcolor:#fffff0;"> </div>
+      
+        <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
     </body>
+    
 </html>

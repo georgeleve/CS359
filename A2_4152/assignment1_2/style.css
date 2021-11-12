@@ -18,7 +18,7 @@ label {
 input, button, select {
     width: 250px;
     display: inline-block;
-
+    cursor: pointer;
     margin-top: 6px;
     border: 3px solid black;
     border-radius: 5px;
@@ -36,22 +36,6 @@ input:focus {
     border: 2px solid white;
 }
 
-/* submit button */
-button{
-    background-color: lightblue;
-    cursor: pointer;
-    padding: 14px 20px;
-    text-align: center;
-    border: 3px solid black;
-    width:300px;
-}
-
-/* When the user points the mouse to the button, make the button white */
-button:hover {
-    background-color: white;
-    color: rgb(14, 13, 13);
-}
-
 .container {
     border-radius: 10px;
     background-color: #f2f2f2;
@@ -67,7 +51,6 @@ input[type="checkbox"] {
     margin-left: -100px;
 }
 
-
 .checkboxlabel {
     width: 400px;
 }
@@ -82,11 +65,35 @@ input[type="checkbox"] {
 
 #doctorlabel, #doctortype {
     display: none;
-    align-self: center;
-    text-align: center;
+    margin-left: 480px;
+}
+
+#showpassword1, #showpassword2 {
+    margin-left: 400px;
 }
 
 #textarea {
     resize: none;
     display: none;
+    margin-left: 400px;
+}
+
+#addressExistsButton, #passwordStrengthButton, #mymy {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(12, 122, 247);
+    border: none;
+    border-radius: 25px;
+}
+
+/* When the user points the mouse to the button, make the button white */
+button:hover {
+    background-color: white;
+    color: rgb(14, 13, 13);
 }
