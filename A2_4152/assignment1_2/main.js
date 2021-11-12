@@ -19,14 +19,14 @@ function checkDateAndAmka(){
   var date = date1.substring(8,10) + date1.substring(5,7) + date1.substring(2,4);
 
   if(amka !== date){
-    document.getElementById("amkaAndDateErrorMessage").innerHTML = "<b>The first 6 digits of your AMKA must match your Birthday</b>";
+    document.getElementById("amkaAndDateErrorMessage").innerHTML = "<b>The first 6 digits of your AMKA must match with your Birthday</b>";
   }else{
     document.getElementById("amkaAndDateErrorMessage").innerHTML = "-";
   }
 }
 
 function isCheckboxChecked(){
-  if (document.getElementById('mycheckbox').checked===false){
+  if (document.getElementById('customCheck1').checked===false){
     document.getElementById("checkboxErrorMessage").innerHTML = "You must accept terms and conditions";
   }else{
     document.getElementById("checkboxErrorMessage").innerHTML = "-";
@@ -57,7 +57,6 @@ function showOrHide(){
   }
 }
 
-
 // >=80% of the characters are different
 function isStrongPassword(){
     return false;
@@ -82,7 +81,7 @@ function changePasswordStrength(password_strength){
 }
 
 function checkPassword1Strength(){
-  checkPasswords();
+  checkPasswords(); ///do i need this????????????????????????????????????????????????????????????????????????????????
 
   let password = document.getElementById("password1").value;
 
@@ -96,8 +95,8 @@ function checkPassword1Strength(){
 }
 
 function submitForm(){
-  //checkPasswords();
-  //checkDateAndAmka();
+    checkPasswords();
+    checkDateAndAmka();
     isCheckboxChecked();
     return false;
 }
@@ -122,7 +121,17 @@ function hidePassword2() {
 
 var lon;
 var lat;
-var address;
+var isInCrete = false;
+
+function getUserAddress(){
+    // my input
+    var addressName=document.getElementById("home_address").value; //"Chandakos";
+    var addressNumber=document.getElementById("addressNumber").value; //18;
+    var city=document.getElementById("city").value; // "Heraklion";
+    var country=document.getElementById("country").value; //"Greece";
+    var address=addressName+" "+addressNumber+" "+city+" "+country;
+    return address;
+}
 // RAPID API
 function loadDoc() {
   //initialize
@@ -136,7 +145,8 @@ function loadDoc() {
       //console.log(this.responseText);
       //alert(this.responseText);
       if(this.responseText === "{}"){
-        document.getElementById("checkAddress").innerHTML = "Sorry, we couldn't find this address."; 
+        document.getElementById("checkAddress").innerHTML = "Sorry, we couldn't find this address.";
+        inCrete = false;
       }
 
       const obj = JSON.parse(xhr.responseText);
@@ -145,21 +155,18 @@ function loadDoc() {
       lat = obj[0].lat;
 
       if(displayName.includes('Crete') === false){
-        document.getElementById("checkAddress").innerHTML = "Sorry, this service is only available in Crete at this moment."; 
+        document.getElementById("checkAddress").innerHTML = "Sorry, this service is only available in Crete at this moment.";
+        isInCrete = false;
       }else {
-        document.getElementById("checkAddress").innerHTML = "Success !!! This address is located in Crete."; 
+        document.getElementById("checkAddress").innerHTML = "Success !!! This address is located in Crete.";
+        isInCrete = true;
       }
     }else {
       //alert("Error on rapid api");
     }
   });
 
-  // my input
-  var addressName=document.getElementById("home_address").value; //"Chandakos";
-  var addressNumber=document.getElementById("addressNumber").value; //18;
-  var city=document.getElementById("city").value; // "Heraklion";
-  var country=document.getElementById("country").value; //"Greece";
-  address=addressName+" "+addressNumber+" "+city+" "+country;
+  var address = getUserAddress();
   //address = "Chandakos 18 Heraklion Greece";
   alert(address);
 
@@ -172,7 +179,6 @@ function loadDoc() {
 
 
 //OSM MAPS
-
 //Orismos Thesis
 function setPosition(lat, lon){
   var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
@@ -190,40 +196,45 @@ function handler(position, message){
     true // <-- true if we want a close (X) button, false otherwise
   );
   map.addPopup(popup);
-  var div = document.getElementById('divID');
-  div.innerHTML += 'Energopoitihike o Handler<br>';
+  document.getElementById('mapMessage').innerHTML = 'Success !!! See the map on the top of the page.';
 }
-
 
 function displayLocation(){
-  //Orismos Marker
-  map = new OpenLayers.Map("Map");
-  var mapnik = new OpenLayers.Layer.OSM();
-  map.addLayer(mapnik);
+  if (isInCrete === true) {
+    document.getElementById("Map").style.display = "block";
+    $("#Map").show();
 
-  //Markers	
-  var markers = new OpenLayers.Layer.Markers("Markers");
-  map.addLayer(markers);
+    //Orismos Marker
+    map = new OpenLayers.Map("Map");
+    var mapnik = new OpenLayers.Layer.OSM();
+    map.addLayer(mapnik);
 
-  //Protos Marker	
-  var position=setPosition(lat, lon);
-  var mar=new OpenLayers.Marker(position);
-  markers.addMarker(mar);	
-  mar.events.register('mousedown', mar, function(evt) { 
-    handler(position, address); //this is my address
-  });
-  
-  //Orismos zoom	
-  const zoom = 2;
-  map.setCenter(position, zoom);
+    //Markers
+    var markers = new OpenLayers.Layer.Markers("Markers");
+    map.addLayer(markers);
+
+    //Protos Marker	
+    var position=setPosition(lat, lon);
+    var mar=new OpenLayers.Marker(position);
+    markers.addMarker(mar);	
+    mar.events.register('mousedown', mar, function(evt) { 
+      handler(position, getUserAddress()); //getUserAddress() returns the address of the user
+    });
+    
+    //Orismos zoom	
+    const zoom = 2;
+    map.setCenter(position, zoom);
+  }else{
+    document.getElementById('mapMessage').innerHTML = 'Error !!! Your location needs to be in Crete';
+  }
 }
 
-function resetMap() {
-
-
+function deleteMap() {
+  document.getElementById("Map").style.display = "none"; 
+  $("#Map").empty();
+  document.getElementById("checkAddress").innerHTML = "-";
+  document.getElementById("mapMessage").innerHTML = "-";
 }
-
-
 
 // Erothma c)
 

@@ -11,10 +11,19 @@
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+
+                <!-- force polyfill everywhere -->
+        <meta name="dateinput-polyfill-media" content="screen">
+        <!-- force polyfill only on mobile devices in portrait mode-->
+        <meta name="dateinput-polyfill-media" content="screen and (orientation: portrait)">
+
+        <meta name="dateinput-polyfill-format" content='{"month":"long","year":"numeric","day":"numeric"}'>
+
+      </head>
 
     <body>
-        <div id="Map" style="height:600px; width:700px"></div>
+        <script src="node_modules/better-dateinput-polyfill/dist/better-dateinput-polyfill.js"></script>
+        <div id="Map" style="height:600px; width:700px; display: none"></div>
         <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 
         <script src="main.js"></script>
@@ -31,9 +40,7 @@
 
               <label for="password1"><b>Password:</b></label>
               <input type="password" minlength="8" maxlength="15"  id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required>
-              <input type="checkbox" onclick="hidePassword1();" id="showpassword1">Show Password
-
-              <br><br>
+              <input type="checkbox" onclick="hidePassword1();" id="showpassword1">Show Password      <br><br>
 
               <label for="password2"><b>Password Confirmation:</b></label>
               <input type="password" minlength="8" maxlength="15"  id="password2" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="(same as Password)" required><br>
@@ -41,7 +48,7 @@
              
               <div id="passwordErrorMessage" style="color: #FFFF00;">-</div> <br>
 
-              <button onclick="checkPassword1Strength();" id="passwordStrengthButton">See password strength</button> 
+              <button onclick="checkPassword1Strength();" id="passwordStrengthButton">Check password strength</button> 
               <div id="passwordStrengthMessage" style="color: #FFFF00;">-</div><br>
 
               <label for="usertype"><b>User Type:</b></label>
@@ -343,7 +350,7 @@
               </select> <br><br>
 
               <label for="city"><b>City:</b></label>
-              <input type="text" name="city" id="city" minlength="3" maxlength="50" required><br><br>
+              <input type="text" name="city" id="city" minlength="3" maxlength="50" onchange="deleteMap();" required><br><br>
               
               <label for="home_address" id="address"><b>Home Address:</b></label>
               <input type="text" minlength="5" maxlength="50" size="50" id="home_address" name="address" required><br><br>
@@ -354,10 +361,8 @@
               <button onclick="loadDoc();" id="addressExistsButton">Check if address exists</button> 
               <div id="checkAddress" style="color: #FFFF00;">-</div><br>
 
-
-              <button onclick="displayLocation();" id="displayLocationButton">See location in OSM maps</button>
-              <div id='divID'></div><br>
-             
+              <button onclick="displayLocation();" id="displayLocationButton">See location in Maps</button>
+              <div id="mapMessage" style="color: #FFFF00;"></div><br>
 
               <label for="tk"><b>Zip Code:</b></label>
               <input type="text" id="tk" name="lat" minLength='5' maxLength='5' pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
@@ -396,8 +401,8 @@
               </select> <br><br>
 
               <div class="checkbox">
-                <label class="checkboxlabel" for="customCheck1"><b>I agree to the Terms & Conditions:</b></label>
-                <input type="checkbox" id="mycheckbox" class="termsandconditions">
+                <label for="customCheck1" class="checkboxlabel"><b>I agree to the Terms & Conditions:</b></label>
+                <input type="checkbox" id="customCheck1" class="termsandconditions">
               </div>
               
               <div id="checkboxErrorMessage" style="color: #FFFF00;" >-</div><br>
