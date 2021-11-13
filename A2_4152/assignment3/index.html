@@ -2,9 +2,6 @@
 <html>
 
     <head>
-        <script src="main.js"></script>
-        <link rel="stylesheet" href="style.css">
-
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
           google.charts.load("current", {packages:["corechart"]});
@@ -26,24 +23,20 @@
             chart.draw(data, options);
           }
         </script>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js"></script>
     </head>
 
     <body>
         <div class="info-box" data-role="infobox">
             <span class="button square closer"></span>
             <div class="info-box-content" id="message">
-                <h3>Infobox</h3>
-                <p>Player:</p>
-                <p>Total Moves:</p>
-                <p>Empty Cells:</p>
-                <p>Draws:</p>
-                <p>Red Player Wins:</p>
-                <p>Yellow Player Wins:</p>
+                Infobox
             </div>
         </div>
-        
+        <br><br><br>
         <div class="row">
-            <div class="column" style="background-color:#ADD8E6;">
+            <div class="column" style="background-color:grey;">
                 <table class="mytable">
                     <tr>
                         <td><button id="p0_0" onclick='play(0,0)'></button></td>
@@ -101,8 +94,8 @@
                     </tr>
                 </table>
             </div>    
-        </div>
-      
+        </div><br><br>
+        <button id="newGame" onclick="newGameAnytime()">New Game</button>
         <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
     </body>
     

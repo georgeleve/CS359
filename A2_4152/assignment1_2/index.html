@@ -39,7 +39,7 @@
               <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
               <label for="password1"><b>Password:</b></label>
-              <input type="password" minlength="8" maxlength="15"  id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required>
+              <input type="password" minlength="8" maxlength="15" id="password1" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" placeholder="" required>
               <input type="checkbox" onclick="hidePassword1();" id="showpassword1">Show Password      <br><br>
 
               <label for="password2"><b>Password Confirmation:</b></label>
@@ -48,7 +48,7 @@
              
               <div id="passwordErrorMessage" style="color: #FFFF00;">-</div> <br>
 
-              <button onclick="checkPassword1Strength();" id="passwordStrengthButton">Check password strength</button> 
+              <button onclick="checkPasswordStrength();" id="passwordStrengthButton">Check password strength</button> 
               <div id="passwordStrengthMessage" style="color: #FFFF00;">-</div><br>
 
               <label for="usertype"><b>User Type:</b></label>

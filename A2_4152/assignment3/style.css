@@ -1,4 +1,37 @@
 .mytable {
-    width: 100%;
+    width: 710px;
     height: 200px;
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    background-color: black; /* Green */
+    background-size: contains;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+img {
+
+}
+
+#newGame {
+    border-color: #e7e7e7;
+    color: black;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
 }

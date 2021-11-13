@@ -1,6 +1,6 @@
 /* Geogios Gerasimos Leventopoulos csd4152 */ 
 
-// Question 1)   OSM MAPS
+// Question 1   OSM MAPS
 
 // Check if passwords are the same
 function checkPasswords(){
@@ -9,11 +9,14 @@ function checkPasswords(){
 
     if (firstPassword !== secondPassword) {
       document.getElementById("passwordErrorMessage").innerHTML = "<b>Error, both passwords must be exactly the same !!!</b>";
+      return false;
     }else{
       document.getElementById("passwordErrorMessage").innerHTML = "-";
+      return true;
     }
 }
 
+// The first 6 numbers of amka need to be the same as birthday
 function checkDateAndAmka(){
 	var amka = document.getElementById("amka").value.substring(0,6);
 
@@ -59,40 +62,75 @@ function showOrHide(){
   }
 }
 
-// >=80% of the characters are different
-function isStrongPassword(){
-    return false;
+function countDifferentCharacters(password){
+  var uniqueChars = "";
+
+  for(var i=0; i<password.length;i++){
+      if(uniqueChars.includes(password[i]) === false) {
+          uniqueChars += password[i]
+      }
+  }
+  return uniqueChars.length;
 }
 
-function atLeastHalfOfPasswordContainsASpecificCharacter(password) {
+// >=80% of the characters are different
+function isStrongPassword(password){
+  if(countDifferentCharacters(password) >= (password.length*0.8)){
+      return true
+  }
   return false;
 }
 
-function atLeastHalfOfPasswordAreNumbers(password) {
-  const NUM_REGEX = /([\d])/g;
-  let numberOfDigits = password.match(NUM_REGEX) ?? []; // store digits of the password inside an array
-  return numberOfDigits.length >= (password.length/2);
+function atLeastHalfOfPasswordContainsASpecificCharacter(password) {
+  for(var i=0; i<password.length;i++){
+    var character_frequency = password.split(password.charAt(i)).length - 1;
+    if(character_frequency >= (password.length/2)){
+      //console.log(password.charAt(i));
+      return true;
+    }
+  }
+  return false;
+}
+
+function isNum(val){
+  return !isNaN(val)
+}
+
+function atLeastHalfOfPasswordAreDigits(password) {
+  var digitsCounter = 0
+  for(var i = 0; i < password.length; i++){
+    if (isNum(password.charAt(i))) {
+      digitsCounter++;
+    }
+  }
+  if (digitsCounter >= (password.length/2)){
+    return true;
+  }
+  return false;
 }
 
 function isWeakPassword(password){
-  atLeastHalfOfPasswordAreNumbers(password) || atLeastHalfOfPasswordContainsASpecificCharacter(password);
+  if(atLeastHalfOfPasswordAreDigits(password) || atLeastHalfOfPasswordContainsASpecificCharacter(password)){
+    return true;
+  }
+  return false;
 }
 
 function changePasswordStrength(password_strength){
-  document.getElementById("passwordStrengthMessage").innerHTML = password_strength;
+  document.getElementById("passwordStrengthMessage").innerHTML = "<b>" + password_strength + "</b>" ;
 }
 
-function checkPassword1Strength(){
-  checkPasswords(); ///do i need this????????????????????????????????????????????????????????????????????????????????
+function checkPasswordStrength(){
+  if(checkPasswords() === true) {
+    var password = document.getElementById("password1").value;
 
-  let password = document.getElementById("password1").value;
-
-  if (isWeakPassword(password) && password.length>0){
-    changePasswordStrength("weak password");
-  }else if (isStrongPassword()) {
-    changePasswordStrength("strong password");
-  }else {
-    changePasswordStrength("medium password");
+    if (isWeakPassword(password)){
+      changePasswordStrength("Weak Password");
+    }else if (isStrongPassword(password)) {
+      changePasswordStrength("Strong Password");
+    }else {
+      changePasswordStrength("Medium Password");
+    }
   }
 }
 
@@ -121,14 +159,13 @@ function hidePassword2() {
     }
 }
 
-
-//////////////////// Question b)   OSM MAPS  ////////////////////
+//////////////////// Question B   OSM MAPS  ////////////////////
 var lon;
 var lat;
 var isInCrete = false;
 
+// Get the input that user typed in the form
 function getUserAddress(){
-    // my input
     var addressName=document.getElementById("home_address").value;
     var addressNumber=document.getElementById("addressNumber").value;
     var city=document.getElementById("city").value;
@@ -136,6 +173,7 @@ function getUserAddress(){
     var address=addressName+" "+addressNumber+" "+city+" "+country;
     return address;
 }
+
 // RAPID API
 function geocodingSearch() {
   //Initialize
@@ -171,9 +209,9 @@ function geocodingSearch() {
   });
 
   var address = getUserAddress();
-  alert(address);
+  //alert(address);
 
-    //the request
+  //the request
   xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q="+ address +"&accept-language=en&polygon_threshold=0.0");
   xhr.setRequestHeader("x-rapidapi-host", "forward-reverse-geocoding.p.rapidapi.com");
   xhr.setRequestHeader("x-rapidapi-key", "2a6c4b07eamsh983963b34f4346fp1a7807jsnbf252b9be9e4");
@@ -213,7 +251,7 @@ function displayLocation(){
     $("#Map").show();
 
     document.getElementById('mapMessage').innerHTML = 'Success !!! See the map on the top of the page.';
-    // Declare Marker
+    //Declare Marker
     map = new OpenLayers.Map("Map");
     var mapnik = new OpenLayers.Layer.OSM();
     map.addLayer(mapnik);
@@ -245,7 +283,6 @@ function deleteMap() {
   document.getElementById("checkAddress").innerHTML = "-";
   document.getElementById("mapMessage").innerHTML = "-";
 }
-
 
 
 
@@ -327,6 +364,8 @@ function findLocation() {
   } else {
     document.getElementById("findLocationLabel").innerHTML = "Geolocation is not supported by this browser.";
   }
+  // geocodingSearch();
+  // displayLocation();
 }
 
 
