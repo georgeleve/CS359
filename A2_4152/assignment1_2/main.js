@@ -1,5 +1,7 @@
 /* Geogios Gerasimos Leventopoulos csd4152 */ 
 
+// Question 1)   OSM MAPS
+
 // Check if passwords are the same
 function checkPasswords(){
     var firstPassword = document.getElementById("password1").value;
@@ -119,22 +121,24 @@ function hidePassword2() {
     }
 }
 
+
+//////////////////// Question b)   OSM MAPS  ////////////////////
 var lon;
 var lat;
 var isInCrete = false;
 
 function getUserAddress(){
     // my input
-    var addressName=document.getElementById("home_address").value; //"Chandakos";
-    var addressNumber=document.getElementById("addressNumber").value; //18;
-    var city=document.getElementById("city").value; // "Heraklion";
-    var country=document.getElementById("country").value; //"Greece";
+    var addressName=document.getElementById("home_address").value;
+    var addressNumber=document.getElementById("addressNumber").value;
+    var city=document.getElementById("city").value;
+    var country=document.getElementById("country").value;
     var address=addressName+" "+addressNumber+" "+city+" "+country;
     return address;
 }
 // RAPID API
-function loadDoc() {
-  //initialize
+function geocodingSearch() {
+  //Initialize
   const data = null;
   const xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
@@ -167,7 +171,6 @@ function loadDoc() {
   });
 
   var address = getUserAddress();
-  //address = "Chandakos 18 Heraklion Greece";
   alert(address);
 
     //the request
@@ -177,9 +180,7 @@ function loadDoc() {
   xhr.send(data);
 }
 
-
-//OSM MAPS
-//Orismos Thesis
+//Declare Thesis
 function setPosition(lat, lon){
   var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
   var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
@@ -187,24 +188,32 @@ function setPosition(lat, lon){
   return position;
 }
 
-//Orismos Handler
+// Declare Handler
 function handler(position, message){
   var popup = new OpenLayers.Popup.FramedCloud(
-    "Popup", 
+    "Popup",
     position, null,
     message, null,
     true // <-- true if we want a close (X) button, false otherwise
   );
   map.addPopup(popup);
-  document.getElementById('mapMessage').innerHTML = 'Success !!! See the map on the top of the page.';
+
+}
+
+function mapExists(){
+  if(document.getElementById("Map").style.display === "none"){
+    return false;
+  }
+  return true;
 }
 
 function displayLocation(){
-  if (isInCrete === true) {
+  if (isInCrete === true && mapExists() === false) {
     document.getElementById("Map").style.display = "block";
     $("#Map").show();
 
-    //Orismos Marker
+    document.getElementById('mapMessage').innerHTML = 'Success !!! See the map on the top of the page.';
+    // Declare Marker
     map = new OpenLayers.Map("Map");
     var mapnik = new OpenLayers.Layer.OSM();
     map.addLayer(mapnik);
@@ -213,7 +222,7 @@ function displayLocation(){
     var markers = new OpenLayers.Layer.Markers("Markers");
     map.addLayer(markers);
 
-    //Protos Marker	
+    //Declare Marker	
     var position=setPosition(lat, lon);
     var mar=new OpenLayers.Marker(position);
     markers.addMarker(mar);	
@@ -221,11 +230,12 @@ function displayLocation(){
       handler(position, getUserAddress()); //getUserAddress() returns the address of the user
     });
     
-    //Orismos zoom	
+    //Declare zoom	
     const zoom = 2;
     map.setCenter(position, zoom);
   }else{
-    document.getElementById('mapMessage').innerHTML = 'Error !!! Your location needs to be in Crete';
+    if (isInCrete === false) document.getElementById('mapMessage').innerHTML = 'Error !!! Your location needs to be in Crete';
+    if (mapExists() === true) document.getElementById('mapMessage').innerHTML = 'Error !!! A map already exists';
   }
 }
 
@@ -236,10 +246,88 @@ function deleteMap() {
   document.getElementById("mapMessage").innerHTML = "-";
 }
 
-// Erothma c)
 
 
 
+//////////////////// Question c) ////////////////////
+
+function showError(error) {
+  var x = document.getElementById("findLocationLabel");
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation.";
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable.";
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out.";
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred.";
+      break;
+  }
+}
+
+function fillInputElements(road, road_number, city, country, postcode){
+  document.getElementById("home_address").value = road;
+  document.getElementById("addressNumber").value = road_number;
+  document.getElementById("city").value = city;
+  document.getElementById("country").value = country;
+  document.getElementById("postcode").value = postcode;
+  document.getElementById("findLocationLabel").innerHTML = "Success !!!";
+}
+
+function reverseGeocoding(lat, lon){
+  const data = null;
+
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      //console.log(this.responseText);
+      if(this.responseText === "{}"){
+        document.getElementById("findLocationLabel").innerHTML = "Sorry, we couldn't find your address.";
+      }
+      //alert(xhr.responseText);
+      const obj = JSON.parse(xhr.responseText);
+      //console.log(obj);
+      var road = obj.address.road;
+      var road_number = 10;
+      var city = obj.address.city;
+      var country = obj.address.country;
+      var postcode = obj.address.postcode;
+
+      fillInputElements(road, road_number, city, country, postcode);
+    }else{
+      //alert("error");
+    }
+  });
+
+  xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/reverse?lat=" + lat + "&lon=" + lon + "&accept-language=en&polygon_threshold=0.0");
+  xhr.setRequestHeader("x-rapidapi-host", "forward-reverse-geocoding.p.rapidapi.com");
+  xhr.setRequestHeader("x-rapidapi-key", "2a6c4b07eamsh983963b34f4346fp1a7807jsnbf252b9be9e4");
+  xhr.send(data);
+}
+
+function showPosition(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+
+  document.getElementById("findLocationLabel").innerHTML = 
+  "Latitude: " + latitude + "<br>Longitude: " + longitude;
+
+  reverseGeocoding(latitude, longitude);
+}
+
+function findLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    document.getElementById("findLocationLabel").innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
 
 
 

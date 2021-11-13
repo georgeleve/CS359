@@ -25,7 +25,7 @@
         <script src="node_modules/better-dateinput-polyfill/dist/better-dateinput-polyfill.js"></script>
         <div id="Map" style="height:600px; width:700px; display: none"></div>
         <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-
+        
         <script src="main.js"></script>
         
         <div class="container">
@@ -96,6 +96,10 @@
               <label for="amka"><b>AMKA:</b></label>
               <input type='text' id="amka" name="amka" maxLength='11' minLength='11'  pattern='[0-9]*' placeholder="(11 digits)" required><br>
               <div id="amkaAndDateErrorMessage" style="color: #FFFF00;">-</div><br>
+
+              <button onclick="findLocation();" id="findlocation">Find your location</button> 
+              <div id="findLocationLabel" style="color: #FFFF00;">-</div><br>
+
 
               <label for="country"><b>Country:</b></label>
               <select id="country" name="country">
@@ -358,14 +362,14 @@
               <label for="amka"><b>Address Number:</b></label>
               <input type='text' id="addressNumber" name="addressNumber" maxLength='10' minLength='1'  pattern='[0-9]*' placeholder="" required><br><br>
 
-              <button onclick="loadDoc();" id="addressExistsButton">Check if address exists</button> 
+              <button onclick="geocodingSearch();" id="addressExistsButton">Check if address exists</button> 
               <div id="checkAddress" style="color: #FFFF00;">-</div><br>
 
               <button onclick="displayLocation();" id="displayLocationButton">See location in Maps</button>
               <div id="mapMessage" style="color: #FFFF00;"></div><br>
 
-              <label for="tk"><b>Zip Code:</b></label>
-              <input type="text" id="tk" name="lat" minLength='5' maxLength='5' pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
+              <label for="postcode"><b>Zip Code:</b></label>
+              <input type="text" id="postcode" name="postcode" minLength='5' maxLength='5' pattern='[0-9]*' placeholder="(5 digits)" required><br><br>
 
               <label for="phone_number"><b>Phone Number:</b></label>
               <input type="text" id="phone_number" name="telephone" minLength='1' maxLength='14' pattern='[0-9]*' placeholder="(max 14 digits)" required><br><br>

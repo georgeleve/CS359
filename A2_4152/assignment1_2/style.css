@@ -78,7 +78,7 @@ input[type="checkbox"] {
     margin-left: 400px;
 }
 
-#addressExistsButton, #passwordStrengthButton, #submitButton, #displayLocationButton {
+#addressExistsButton, #passwordStrengthButton, #submitButton, #displayLocationButton, #findlocation {
     display: inline-block;
     padding: 15px 25px;
     font-size: 16px;
