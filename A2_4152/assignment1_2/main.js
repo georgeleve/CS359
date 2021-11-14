@@ -2,16 +2,24 @@
 
 // Question 1   OSM MAPS
 // Check if passwords are the same
-function checkPasswords(){
+function arePasswordsIdentical(){
     var firstPassword = document.getElementById("password1").value;
     var secondPassword = document.getElementById("password2").value;
 
+    if(firstPassword === "" || secondPassword === ""){
+      document.getElementById("passwordErrorMessage").innerHTML = "<b>Error, you can not leave the password field empty !!!</b>";
+      document.getElementById("passwordErrorMessage2").innerHTML = "<b>Error, you can not leave the password field empty !!!</b>";
+      changePasswordStrength("-");
+      return false;
+    }
+
     if (firstPassword !== secondPassword) {
       document.getElementById("passwordErrorMessage").innerHTML = "<b>Error, both passwords must be exactly the same !!!</b>";
-      changePasswordStrength("-");
+      document.getElementById("passwordErrorMessage2").innerHTML = "<b>Error, both passwords must be exactly the same !!!</b>";
       return false;
     }else{
       document.getElementById("passwordErrorMessage").innerHTML = "-";
+      document.getElementById("passwordErrorMessage2").innerHTML = "-";
       return true;
     }
 }
@@ -24,15 +32,17 @@ function checkDateAndAmka(){
   var date = date1.substring(8,10) + date1.substring(5,7) + date1.substring(2,4);
 
   if(amka !== date){
-    document.getElementById("amkaAndDateErrorMessage").innerHTML = "<b>The first 6 digits of your AMKA must match with your Birthday</b>";
+    document.getElementById("amkaAndDateErrorMessage").innerHTML = "<b>The first 6 digits of your AMKA must match your birthday</b>";
+    document.getElementById("amkaAndDateErrorMessage2").innerHTML = "<b>The first 6 digits of your AMKA must match your birthday</b>";
   }else{
     document.getElementById("amkaAndDateErrorMessage").innerHTML = "-";
+    document.getElementById("amkaAndDateErrorMessage2").innerHTML = "-";
   }
 }
 
 function isCheckboxChecked(){
   if (document.getElementById('customCheck1').checked===false){
-    document.getElementById("checkboxErrorMessage").innerHTML = "You must accept terms and conditions";
+    document.getElementById("checkboxErrorMessage").innerHTML = "<b>You must accept terms & conditions</b>";
   }else{
     document.getElementById("checkboxErrorMessage").innerHTML = "-";
   }
@@ -42,14 +52,14 @@ function hideDoctorInfo(){
   document.getElementById("textarea").style.display = "none";
   document.getElementById("doctorlabel").style.display = "none";
   document.getElementById("doctortype").style.display = "none";
-  document.getElementById('address').innerHTML = "Home Address".bold();
+  document.getElementById('address').innerHTML = "<b>Home Address</b>";
 }
 
 function showDoctorInfo(){
   document.getElementById("textarea").style.display = "block";
   document.getElementById("doctorlabel").style.display = "block";
   document.getElementById("doctortype").style.display = "block";
-  document.getElementById('address').innerHTML = "Doctor's Office Address".bold();
+  document.getElementById('address').innerHTML = "<b>Doctor's Office Address</b>";
 }
 
 function showOrHide(){
@@ -121,7 +131,7 @@ function changePasswordStrength(password_strength){
 }
 
 function checkPasswordStrength(){
-  if(checkPasswords() === true) {
+  if(arePasswordsIdentical() === true) {
     var password = document.getElementById("password1").value;
 
     if (isWeakPassword(password)){
@@ -130,6 +140,10 @@ function checkPasswordStrength(){
       changePasswordStrength("Strong Password");
     }else {
       changePasswordStrength("Medium Password");
+    }
+    
+    if(password.length < 8){
+      changePasswordStrength("Password must have more than 8 characters");
     }
   }
 }
@@ -153,7 +167,7 @@ function hidePassword2() {
 }
 
 function submitForm(){
-  checkPasswords();
+  arePasswordsIdentical();
   checkDateAndAmka();
   isCheckboxChecked();
   return false;

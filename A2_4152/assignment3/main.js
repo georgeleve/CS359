@@ -11,7 +11,7 @@ var flag = 0;
 
 // Bug: na ftiaxo thn kato kato grammh sto  vertically
 // na anavosbhnoun ama kerdisei kapoios
-// na xanado to updatePage ● Ποιος παίκτης έπαιξε (1 μονάδα)
+// na xanado to updatePage
 // ● Πόση ώρα του πήρε (2 μονάδες)
 // na kano to bonus
 
