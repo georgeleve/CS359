@@ -8,11 +8,9 @@ var redPlayerWins = 0;
 var yellowPlayerWins = 0;
 var totalDraws = 0;
 var flag = 0;
-
-// Bug: na ftiaxo thn kato kato grammh sto  vertically
+var startTime = 0;
+var endTime = 0;
 // na anavosbhnoun ama kerdisei kapoios
-// na xanado to updatePage
-// ● Πόση ώρα του πήρε (2 μονάδες)
 // na kano to bonus
 
 function updateInfobox() {
@@ -20,9 +18,9 @@ function updateInfobox() {
     "Player Turn: " + currentColor + " player <br>" +
     "Total Moves: " + filledCircles + "<br>" +
     "Empty Cells: " + (42-filledCircles) + " player <br>" +
-    " Red player wins: " + redPlayerWins + "<br>" +
-    " Yellow player wins: " + yellowPlayerWins + "<br>" +
-    " Draws: " + totalDraws;
+    "Red player wins: " + redPlayerWins + "<br>" +
+    "Yellow player wins: " + yellowPlayerWins + "<br>" +
+    "Draws: " + totalDraws;
 }
 
 function getTotalMoves(){
@@ -53,18 +51,24 @@ function showWinner(color){
     disableButtons();
 }
 
-function updateLabel(){
-    if(flag !== 0){
-        var playerThatJustPlayed = getPlayerTurn();
-        var time = 0;
-        if(playerThatJustPlayed === 'yellow'){
-            playerThatJustPlayed = 'red';
-        }else{
-            playerThatJustPlayed = 'yellow';
-        }
-        document.getElementById("updatePageLabel").innerHTML = "Player that just played: " + playerThatJustPlayed +
-         " player<br> Time it took: " + time + " seconds";
+function showTimeAndPlayer(){
+    endTime = new Date().getTime();
+    const date = new Date(endTime-startTime);
+    startTime = new Date().getTime();
+
+    var playerThatJustPlayed = getPlayerTurn();
+    var time = 0;
+    if(playerThatJustPlayed === 'yellow'){
+        playerThatJustPlayed = 'red';
     }else{
+        playerThatJustPlayed = 'yellow';
+    }
+
+    if(flag === 1){
+        document.getElementById("updatePageLabel").innerHTML = "Player that just played: " + playerThatJustPlayed +
+        " player<br> Time it took: " + `${date.getSeconds()}` + " seconds";
+    }else{
+        document.getElementById("updatePageLabel").innerHTML = "Player that just played: " + playerThatJustPlayed;
         flag = 1;
     }
 }
@@ -81,7 +85,6 @@ function updatePage() {
         }
     }
     svg.innerHTML = circles;
-    updateLabel(); //show player that just played and how much it took
 }
 
 function changePlayerTurn(currentColor){
@@ -146,7 +149,7 @@ function hasPlayerWon(){
                         return;  
                     }
                 }
-                if(i===0 || i === 1){
+                if(i===0 || i === 1 || i == 2){
                    if(verticalWin(i, j, grid, circle)){
                         updateStats(circle.color);
                         showWinner(circle.color);
@@ -184,6 +187,7 @@ function play(j) {
             currentColor = changePlayerTurn(currentColor);
             updatePage();
             filledCircles++;
+            showTimeAndPlayer();
             hasPlayerWon();
             updateInfobox();
             return;
