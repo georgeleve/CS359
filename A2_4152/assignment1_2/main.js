@@ -174,7 +174,7 @@ function getUserAddress(){
     return address;
 }
 
-// RAPID API
+// checks if user address exists
 function geocodingSearch() {
   //Initialize
   const data = null;
@@ -204,7 +204,7 @@ function geocodingSearch() {
         isInCrete = true;
       }
     }else {
-      //alert("Error on rapid api");
+      //alert("Error on geocodingSearch");
     }
   });
 
@@ -212,13 +212,13 @@ function geocodingSearch() {
   //alert(address);
 
   //the request
-  xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q="+ address +"&accept-language=en&polygon_threshold=0.0");
+  xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q="+ address +"&format=json&accept-language=en&polygon_threshold=0.0");
   xhr.setRequestHeader("x-rapidapi-host", "forward-reverse-geocoding.p.rapidapi.com");
   xhr.setRequestHeader("x-rapidapi-key", "2a6c4b07eamsh983963b34f4346fp1a7807jsnbf252b9be9e4");
   xhr.send(data);
 }
 
-//Declare Thesis
+// Declare Thesis
 function setPosition(lat, lon){
   var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
   var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
@@ -250,7 +250,7 @@ function displayLocation(){
     document.getElementById("Map").style.display = "block";
     $("#Map").show();
 
-    document.getElementById('mapMessage').innerHTML = 'Success !!! See the map on the top of the page.';
+    document.getElementById('mapMessage').innerHTML = 'Success !!! See the map at the top of the page.';
     //Declare Marker
     map = new OpenLayers.Map("Map");
     var mapnik = new OpenLayers.Layer.OSM();
@@ -310,10 +310,11 @@ function fillInputElements(road, road_number, city, country, postcode){
   document.getElementById("addressNumber").value = road_number;
   document.getElementById("city").value = city;
   document.getElementById("country").value = country;
-  document.getElementById("postcode").value = postcode;
+  //document.getElementById("postcode").value = postcode;
   document.getElementById("findLocationLabel").innerHTML = "Success !!!";
 }
 
+// Finds User Address and fills it to the form
 function reverseGeocoding(lat, lon){
   const data = null;
 
@@ -337,11 +338,11 @@ function reverseGeocoding(lat, lon){
       
       fillInputElements(road, road_number, city, country, postcode);
     }else{
-      alert("error");
+      //alert("Error at reverseGeocoding");
     }
   });
 
-  xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/reverse?lat=" + lat + "&lon=" + lon + "&accept-language=en&polygon_threshold=0.0");
+  xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/reverse?lat=" + lat + "&lon=" + lon + "&accept-language=en&format=json&polygon_threshold=0.0");
   xhr.setRequestHeader("x-rapidapi-host", "forward-reverse-geocoding.p.rapidapi.com");
   xhr.setRequestHeader("x-rapidapi-key", "2a6c4b07eamsh983963b34f4346fp1a7807jsnbf252b9be9e4");
   xhr.send(data);
