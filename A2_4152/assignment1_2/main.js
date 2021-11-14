@@ -1,7 +1,6 @@
 /* Geogios Gerasimos Leventopoulos csd4152 */ 
 
 // Question 1   OSM MAPS
-
 // Check if passwords are the same
 function checkPasswords(){
     var firstPassword = document.getElementById("password1").value;
@@ -9,6 +8,7 @@ function checkPasswords(){
 
     if (firstPassword !== secondPassword) {
       document.getElementById("passwordErrorMessage").innerHTML = "<b>Error, both passwords must be exactly the same !!!</b>";
+      changePasswordStrength("-");
       return false;
     }else{
       document.getElementById("passwordErrorMessage").innerHTML = "-";
@@ -65,7 +65,7 @@ function showOrHide(){
 function countDifferentCharacters(password){
   var uniqueChars = "";
 
-  for(var i=0; i<password.length;i++){
+  for(var i=0; i<password.length; i++){
       if(uniqueChars.includes(password[i]) === false) {
           uniqueChars += password[i]
       }
@@ -93,11 +93,11 @@ function atLeastHalfOfPasswordContainsASpecificCharacter(password) {
 }
 
 function isNum(val){
-  return !isNaN(val)
+  return !isNaN(val);
 }
 
 function atLeastHalfOfPasswordAreDigits(password) {
-  var digitsCounter = 0
+  var digitsCounter = 0;
   for(var i = 0; i < password.length; i++){
     if (isNum(password.charAt(i))) {
       digitsCounter++;
@@ -134,13 +134,6 @@ function checkPasswordStrength(){
   }
 }
 
-function submitForm(){
-    checkPasswords();
-    checkDateAndAmka();
-    isCheckboxChecked();
-    return false;
-}
-
 function hidePassword1() {
     var x = document.getElementById("password1");
     if (x.type === "password") {
@@ -157,6 +150,13 @@ function hidePassword2() {
     } else {
       x.type = "password";
     }
+}
+
+function submitForm(){
+  checkPasswords();
+  checkDateAndAmka();
+  isCheckboxChecked();
+  return false;
 }
 
 //////////////////// Question B   OSM MAPS  ////////////////////
