@@ -264,7 +264,7 @@ function displayLocation(){
     var position=setPosition(lat, lon);
     var mar=new OpenLayers.Marker(position);
     markers.addMarker(mar);	
-    mar.events.register('mousedown', mar, function(evt) { 
+    mar.events.register('mousedown', mar, function(evt) {
       handler(position, getUserAddress()); //getUserAddress() returns the address of the user
     });
     
@@ -278,12 +278,11 @@ function displayLocation(){
 }
 
 function deleteMap() {
-  document.getElementById("Map").style.display = "none"; 
+  document.getElementById("Map").style.display = "none";
   $("#Map").empty();
   document.getElementById("checkAddress").innerHTML = "-";
   document.getElementById("mapMessage").innerHTML = "-";
 }
-
 
 
 //////////////////// Question c) ////////////////////
@@ -335,10 +334,10 @@ function reverseGeocoding(lat, lon){
       var city = obj.address.city;
       var country = obj.address.country;
       var postcode = obj.address.postcode;
-
+      
       fillInputElements(road, road_number, city, country, postcode);
     }else{
-      //alert("error");
+      alert("error");
     }
   });
 
@@ -367,19 +366,3 @@ function findLocation() {
   // geocodingSearch();
   // displayLocation();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
