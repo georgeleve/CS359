@@ -10,8 +10,6 @@ var totalDraws = 0;
 var flag = 0;
 var startTime = 0;
 var endTime = 0;
-// na anavosbhnoun ama kerdisei kapoios
-// na kano to bonus
 
 function updateInfobox() {
     document.getElementById("infobox").innerHTML =

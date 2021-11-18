@@ -1,7 +1,9 @@
-/* Geogios Gerasimos Leventopoulos csd4152 */ 
+/* Geogios Gerasimos Leventopoulos csd4152 */
+var lon;
+var lat;
+var isInCrete = false;
 
 // Question 1   OSM MAPS
-// Check if passwords are the same
 function arePasswordsIdentical(){
     var firstPassword = document.getElementById("password1").value;
     var secondPassword = document.getElementById("password2").value;
@@ -9,6 +11,7 @@ function arePasswordsIdentical(){
     if(firstPassword === "" || secondPassword === ""){
       document.getElementById("passwordErrorMessage").innerHTML = "<b>Error, you can not leave the password field empty !!!</b>";
       document.getElementById("passwordErrorMessage2").innerHTML = "<b>Error, you can not leave the password field empty !!!</b>";
+      document.getElementById("passwordStrengthMessage").innerHTML = "-" ;
       changePasswordStrength("-");
       return false;
     }
@@ -16,6 +19,7 @@ function arePasswordsIdentical(){
     if (firstPassword !== secondPassword) {
       document.getElementById("passwordErrorMessage").innerHTML = "<b>Error, both passwords must be exactly the same !!!</b>";
       document.getElementById("passwordErrorMessage2").innerHTML = "<b>Error, both passwords must be exactly the same !!!</b>";
+      document.getElementById("passwordStrengthMessage").innerHTML = "-" ;
       return false;
     }else{
       document.getElementById("passwordErrorMessage").innerHTML = "-";
@@ -24,7 +28,7 @@ function arePasswordsIdentical(){
     }
 }
 
-// The first 6 numbers of amka need to be the same as birthday
+/* The first 6 numbers of amka need to be the same as birthday */
 function checkDateAndAmka(){
 	var amka = document.getElementById("amka").value.substring(0,6);
 
@@ -95,7 +99,6 @@ function atLeastHalfOfPasswordContainsASpecificCharacter(password) {
   for(var i=0; i<password.length;i++){
     var character_frequency = password.split(password.charAt(i)).length - 1;
     if(character_frequency >= (password.length/2)){
-      //console.log(password.charAt(i));
       return true;
     }
   }
@@ -174,9 +177,6 @@ function submitForm(){
 }
 
 //////////////////// Question B   OSM MAPS  ////////////////////
-var lon;
-var lat;
-var isInCrete = false;
 
 // Get the input that user typed in the form
 function getUserAddress(){
@@ -236,7 +236,7 @@ function geocodingSearch() {
 function setPosition(lat, lon){
   var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
   var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-  var position       = new OpenLayers.LonLat(lon, lat).transform( fromProjection, toProjection);
+  var position       = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
   return position;
 }
 
@@ -249,7 +249,6 @@ function handler(position, message){
     true // <-- true if we want a close (X) button, false otherwise
   );
   map.addPopup(popup);
-
 }
 
 function mapExists(){
@@ -297,7 +296,6 @@ function deleteMap() {
   document.getElementById("checkAddress").innerHTML = "-";
   document.getElementById("mapMessage").innerHTML = "-";
 }
-
 
 //////////////////// Question c) ////////////////////
 
@@ -378,6 +376,4 @@ function findLocation() {
   } else {
     document.getElementById("findLocationLabel").innerHTML = "Geolocation is not supported by this browser.";
   }
-  // geocodingSearch();
-  // displayLocation();
 }
