@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/login.js"></script>
+	</head>	
+	<body>
+		<h1>Login Form</h1>
+        <label for="username">username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">password:</label><br>
+		<input type="password"  name="password" id="password"><br>
+		<input type="checkbox" onclick="hidePassword();" id="showpassword">Show Password <br>
+		<button type="button" class="button" value="Login" onclick="loginPOST();">Login Post</button><br><br>
+ 		<div id="loginLabel"></div>
+ 		<div id="error"></div>
+	</body>
+</html>
