@@ -1,0 +1,42 @@
+html{
+  background: gray;
+}
+
+form{
+  width: 50%;
+  margin-left : 25%;
+  margin-top : 5%;
+}
+#pwMissmatch{
+  color: red;
+}
+.form-elem{
+  margin-top: 10px;
+  margin-bottom :10px;
+}
+
+#formDiv{
+  text-align: center;
+  background: gray;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.checkboxtext{
+  font-size: 110%;
+  display: inline;
+}
+
+#checkboxShowPwCent{
+	padding-top: 8px;
+}

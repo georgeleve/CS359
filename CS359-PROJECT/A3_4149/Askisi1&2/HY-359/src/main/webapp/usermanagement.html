@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Konstantinos Anemozalis - CSD4149</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="author" content="Konstantinos Anemozalis">
+	<link rel="stylesheet" href="css/userManagementStyle.css">
+	
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/usermanagementJs.js"></script>
+	<script src="js/sweetalert2.all.js"></script>
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+		crossorigin="anonymous">
+</head>
+<body>
+	<script>
+	    var xhr = new XMLHttpRequest();
+	    xhr.onload = function () {
+	        if (xhr.readyState === 4 && xhr.status === 200) {
+	        	loadData();
+	        } else if (xhr.status !== 200) {
+				window.location.href = '/HY-359/login.html';
+	        }
+	    };
+	    xhr.open('GET', 'Login', false);
+	    xhr.send();
+	</script>
+	
+	<button class="btn btn-primary" type="button" onclick="logoutPOST();">Logout</button>
+	
+	<div id="userInfo">
+		<h2>Your information: </h2>
+		<!-- Name -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="usernameField" value="username" readonly>
+			</div>
+		</div>
+		
+		<!-- Email -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="emailField" value="email" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('email');">Update Email</button>
+		</div>
+
+		<!-- Password -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="passwordField" value="password" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('password');">Update Password</button>
+		</div>
+
+		<!-- First name -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="firstnameField" value="Firstname" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('firstname');">Update Firstname</button>
+		</div>
+
+		<!-- Last name -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="lastnameField" value="Lastname" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('lastname');">Update Lastname</button>
+		</div>
+
+		<!-- Birthdate -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="birthdateField" value="Birthdate" readonly>
+			</div>
+		</div>
+
+		<!-- Gender -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="genderField" value="Gender" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('gender');">Update Gender</button>
+		</div>
+
+		<!-- AMKA -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="amkaField" value="AMKA" readonly>
+			</div>
+		</div>
+
+		<!-- Country -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="countryField" value="Country" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('country');">Update Country</button>
+		</div>
+
+		<!-- City -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="cityField" value="City" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('city');">Update City</button>
+		</div>
+
+		<!-- Address -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="addressField" value="Address" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('address');">Update Address</button>
+		</div>
+
+		<!-- Telephone -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="telephoneField" value="Telephone" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('telephone');">Update Telephone</button>
+		</div>
+
+		<!-- Height -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="heightField" value="Height" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('height');">Update Height</button>
+		</div>
+
+		<!-- Weight -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="weightField" value="Weight" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('weight');">Update Weight</button>
+		</div>
+
+		<!-- BloodDonor -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="blooddonorField" value="Blooddonor" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('blooddonor');">Update Blooddonor</button>
+		</div>
+
+		<!-- Bloodtype -->
+		<div class="row">
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="bloodtypeField" value="Bloodtype" readonly>
+			</div>
+			<button type="button" class="col-md-2 btn btn-primary"  onclick="update('bloodtype');">Update bloodtype</button>
+		</div>
+	</div>
+
+	<div id="fitnessCheck">
+		<h2>Fitness Calculator: </h2><br>
+		<button class="btn btn-primary" type="button" onclick="getBMI();">Get BMI</button>
+		<button class="btn btn-primary" type="button" onclick="getIdealWeight();">Get ideal weight</button>
+	</div>
+
+	<div id="docInfo">
+		<h2>Doctor list: </h2>
+		<table id="docTable">
+		  <tr>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Address</th>
+		    <th>City</th>
+		    <th>Telephone</th>
+		    <th>Specialty</th>
+		    <th>Information</th>
+		  </tr>
+		</table>
+	</div>
+</body>
+ 
