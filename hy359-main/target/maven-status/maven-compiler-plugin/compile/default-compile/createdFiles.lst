@@ -1,0 +1,8 @@
+database\tables\EditDoctorTable.class
+mainClasses\JSONConverter.class
+mainClasses\Doctor.class
+servlets\Register.class
+mainClasses\User.class
+mainClasses\SimpleUser.class
+database\DB_Connection.class
+database\tables\EditSimpleUserTable.class
