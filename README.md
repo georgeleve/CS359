@@ -1,1 +1,1 @@
-![alt text](http://github.com/georgeleve/CS359/blob/main/REST_API/screenshot.jpg)
+![alt text](https://github.com/georgeleve/CS359/blob/main/screenshot.jpg)
