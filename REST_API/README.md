@@ -1,3 +1,2 @@
 # REST_API
-
-![alt text](https://github.com/georgeleve/REST_API/blob/main/screenshot.jpg)
+![alt text](http://github.com/georgeleve/CS359/blob/main/REST_API/screenshot.jpg)
