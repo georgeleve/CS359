@@ -1,4 +1,4 @@
-Georgios Gerasimos Leventopoulos csd4152       CS359 WEb Programming
+Georgios Gerasimos Leventopoulos       CS359 Web Programming
 
 
 Exercise 1_2: I did everything
